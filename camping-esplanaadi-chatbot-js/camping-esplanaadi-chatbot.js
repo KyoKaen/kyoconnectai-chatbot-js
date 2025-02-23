@@ -4,8 +4,9 @@ class CampingChatbot {
   static config = {
     PRIMARY_COLOR: '#000000',
     SECONDARY_COLOR: '#F0F4F8',
-    USER_MESSAGE_BG: '#28a745',
+    USER_MESSAGE_BG: '#28a745', //green
     USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
+    CUSTOMIZED_ICON:'https://kyoconnectai.com/camping-esplanaadi-logo.jpg', 
     BOT_ICON: 'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
     FREQUENT_QUESTIONS: [
       "Check-in and check-out times",
@@ -77,13 +78,12 @@ class CampingChatbot {
         z-index: 1000;
       }
 
-      /* All original CSS rules preserved exactly */
       #camping-chatbot-header {
         display: flex;
         align-items: center;
         padding: 10px;
         border-bottom: 2px solid var(--secondary-color);
-        background: var(--primary-color);
+        /* background: var(--primary-color); */
         color: white;
       }
 
@@ -240,12 +240,12 @@ class CampingChatbot {
       .bot-message-bubble {
           background: white;
           border: 1px solid #dee2e6;
-          font-size: 0.8em;
+          font-size: 0.9em;
       }
       .user-message-bubble {
           background: var(--user-message-bg-color);
           color: white;
-          font-size: 0.8em;
+          font-size: 0.9em;
       }
               /* Loading Animation */
           .loading-dots {
