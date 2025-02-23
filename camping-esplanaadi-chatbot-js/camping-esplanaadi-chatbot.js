@@ -6,7 +6,7 @@ class CampingChatbot {
     SECONDARY_COLOR: '#F0F4F8',
     USER_MESSAGE_BG: '#28a745', //green
     USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
-    CUSTOMIZED_ICON:'https://kyoconnectai.com/camping-esplanaadi-logo.jpg', 
+    CUSTOMIZED_ICON:'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
     BOT_ICON: 'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
     FREQUENT_QUESTIONS: [
       "Check-in and check-out times",
@@ -35,7 +35,7 @@ class CampingChatbot {
   };
 
   constructor(config = {}) {
-    
+
     // Set API endpoint
     this.apiEndpoint = config.apiUrl || window.CAMPING_CHATBOT_API || '/chat';
 
@@ -193,8 +193,8 @@ class CampingChatbot {
           transition: opacity 0.3s ease;
       }
       #chat-toggle img {
-          width: 70%;
-          height: 70%;
+          width: 100%;
+          height: 100%;
           border-radius: 50%;
           object-fit: cover;
           opacity: 1;
@@ -333,7 +333,7 @@ class CampingChatbot {
     this.toggleButton = document.createElement('button');
     this.toggleButton.id = 'chat-toggle';
     this.toggleButton.innerHTML = `
-      <img src="${CampingChatbot.config.BOT_ICON}" alt="Chatbot Logo">
+      <img src="${CampingChatbot.config.CUSTOMIZED_ICON}" alt="Chatbot Logo">
       <i class="fas fa-chevron-down"></i>
     `;
     document.body.appendChild(this.toggleButton);
@@ -410,7 +410,7 @@ class CampingChatbot {
         }
 
         const data = await response.json();
-        
+
         if (!response.ok) {
             throw new Error(data.detail || 'Request failed');
         }
@@ -533,7 +533,7 @@ if (document.readyState === 'complete') {
   new CampingChatbot({
     apiUrl: 'https://camping-chatbot-1096582767898.europe-west1.run.app/chat'
   });
-  
+
 } else {
   window.addEventListener('DOMContentLoaded', () => new CampingChatbot({ apiUrl: 'https://camping-chatbot-1096582767898.europe-west1.run.app/chat'}));
 }
