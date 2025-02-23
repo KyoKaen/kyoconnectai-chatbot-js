@@ -91,6 +91,7 @@ class CampingChatbot {
       #camping-chatbot-header h4 {
           margin: 0;
           font-size: 1.1em;
+          color: var(--primary-color); //black
       }
 
       #camping-chatbot-messages {
