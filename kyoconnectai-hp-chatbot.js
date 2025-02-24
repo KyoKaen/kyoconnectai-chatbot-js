@@ -534,9 +534,9 @@ class KyoconnectaiHPChatbot {
 // Initialization
 if (document.readyState === 'complete') {
   new KyoconnectaiHPChatbot({
-    // apiUrl: 'https://kyoconnectai-hp-chatbot-1096582767898.europe-west1.run.app/chat'  -> endpoint to be updated
+    apiUrl: 'https://kyoconnectai-hp-chatbot-1096582767898.europe-west1.run.app/chat'
   });
 
 } else {
-  // window.addEventListener('DOMContentLoaded', () => new KyoconnectaiHPChatbot({ apiUrl: 'https://kyoconnectai-hp-chatbot-1096582767898.europe-west1.run.app/chat'}));  -> endpoint to be updated
+  window.addEventListener('DOMContentLoaded', () => new KyoconnectaiHPChatbot({ apiUrl: 'https://kyoconnectai-hp-chatbot-1096582767898.europe-west1.run.app/chat'})); 
 }
