@@ -14,7 +14,7 @@ class KyoconnectaiHPChatbot {
       // "Introduction to KyoConnectAI",
       "What KyoConnectAI Does",
       // "Roadmap",
-      "Founder Information", 
+      "Founder Information",
       // "Competitive Advantages",
       "Differentiation from Competitors",
       "Mission & Unique Value Proposition (UVP)",
@@ -39,6 +39,8 @@ class KyoconnectaiHPChatbot {
   };
 
   constructor(config = {}) {
+      // Add dependency loader first
+    this.loadDependencies().then(() => {
 
     // Set API endpoint
     this.apiEndpoint = config.apiUrl || window.CHATBOT_API || '/chat';
@@ -54,7 +56,47 @@ class KyoconnectaiHPChatbot {
     this.initEventListeners();
     this.initFrequentQuestions();
     this.loadFontAwesome();
+    });
   }
+
+
+  async loadDependencies() {
+  return new Promise((resolve) => {
+    if (window.marked && window.DOMPurify) {
+      return resolve();
+    }
+
+    let loadedCount = 0;
+    const checkLoaded = () => ++loadedCount === 2 && resolve();
+
+    // Load marked
+    const markedScript = document.createElement('script');
+    markedScript.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
+    markedScript.onload = checkLoaded;
+    document.head.appendChild(markedScript);
+
+    // Load DOMPurify
+    const purifyScript = document.createElement('script');
+    purifyScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js';
+    purifyScript.onload = checkLoaded;
+    document.head.appendChild(purifyScript);
+  });
+}
+
+  // Modified parseMarkdown method
+  parseMarkdown(content) {
+    try {
+      const unsafeHtml = window.marked.parse(content);
+      return window.DOMPurify.sanitize(unsafeHtml, {
+        ALLOWED_TAGS: ['p', 'strong', 'em', 'ul', 'ol', 'li', 'h3', 'h4', 'a', 'table', 'tr', 'td', 'th', 'thead', 'tbody'],
+        ALLOWED_ATTR: ['href', 'target']
+      });
+    } catch (error) {
+      console.error('Markdown parsing error:', error);
+      return content; // Fallback to raw text
+    }
+  }
+
 
   // =============== Style Injection ===============
   injectStyles() {
@@ -63,7 +105,7 @@ class KyoconnectaiHPChatbot {
       :root {
         --primary-color: ${KyoconnectaiHPChatbot.config.PRIMARY_COLOR};
         --secondary-color: ${KyoconnectaiHPChatbot.config.SECONDARY_COLOR};
-        --user-message-bg-color: ${KyoconnectaiHPChatbot.config.USER_MESSAGE_BG}; // end user message color 
+        --user-message-bg-color: ${KyoconnectaiHPChatbot.config.USER_MESSAGE_BG}; // end user message color
       }
 
       /* Original container styles preserved */
@@ -198,7 +240,7 @@ class KyoconnectaiHPChatbot {
           transition: opacity 0.3s ease;
       }
       #chat-toggle img {
-          width: 100%; 
+          width: 100%;
           height: 100%; /* customize */
           border-radius: 50%;
           object-fit: cover;
@@ -467,14 +509,24 @@ class KyoconnectaiHPChatbot {
     const message = document.createElement('div');
     message.className = `message-container ${sender}-message-container`;
 
+    const formattedText = sender === 'bot' ? this.parseMarkdown(text): text;
     message.innerHTML = `
       <img src="${sender === 'user' ? KyoconnectaiHPChatbot.config.USER_ICON : KyoconnectaiHPChatbot.config.BOT_ICON}"
            class="message-icon"
            alt="${sender} icon">
       <div class="message-bubble ${sender}-message-bubble">
-        ${text}
+        ${formattedText}
       </div>
     `;
+    
+    // message.innerHTML = `
+    //   <img src="${sender === 'user' ? KyoconnectaiHPChatbot.config.USER_ICON : KyoconnectaiHPChatbot.config.BOT_ICON}"
+    //        class="message-icon"
+    //        alt="${sender} icon">
+    //   <div class="message-bubble ${sender}-message-bubble">
+    //     ${text}
+    //   </div>
+    // `;
 
     messagesDiv.appendChild(message);
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
@@ -541,5 +593,5 @@ if (document.readyState === 'complete') {
   });
 
 } else {
-  window.addEventListener('DOMContentLoaded', () => new KyoconnectaiHPChatbot({ apiUrl: 'https://kyoconnectai-hp-chatbot-1096582767898.europe-west1.run.app/chat'})); 
+  window.addEventListener('DOMContentLoaded', () => new KyoconnectaiHPChatbot({ apiUrl: 'https://kyoconnectai-hp-chatbot-1096582767898.europe-west1.run.app/chat'}));
 }
