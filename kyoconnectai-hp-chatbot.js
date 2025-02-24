@@ -2,7 +2,7 @@ class KyoconnectaiHPChatbot {
 
   // =============== Configuration ===============
   static config = {
-    PRIMARY_COLOR: '#000000',
+    PRIMARY_COLOR: '#000000', //black
     SECONDARY_COLOR: '#F0F4F8',
     USER_MESSAGE_BG: '#000000', //black
     // USER_MESSAGE_BG: '#28a745', //green
@@ -13,7 +13,7 @@ class KyoconnectaiHPChatbot {
     FREQUENT_QUESTIONS: [
       // "Introduction to KyoConnectAI",
       "What KyoConnectAI Does",
-      "Roadmap",
+      // "Roadmap",
       "Founder Information", 
       // "Competitive Advantages",
       "Differentiation from Competitors",
@@ -26,7 +26,7 @@ class KyoconnectaiHPChatbot {
       initialMessage: "Hi! What can I help you with KyoConnectAI?",
       inputPlaceholder: "Ask your question...",
       footerHTML: `Powered by <a href="https://kyoconnectai.com/" target="_blank">KyoConnectAI.com</a> |
-                   AI can make mistakes. Verify important info with Tamara.`
+                   AI can make mistakes.`
     },
     behavior: {
       maxQuestions: 20,
