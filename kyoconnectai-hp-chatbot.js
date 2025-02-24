@@ -4,6 +4,7 @@ class KyoconnectaiHPChatbot {
   static config = {
     PRIMARY_COLOR: '#000000',
     SECONDARY_COLOR: '#F0F4F8',
+    USER_MESSAGE_BG: '#000000', //black
     // USER_MESSAGE_BG: '#28a745', //green
     USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
     // CUSTOMIZED_ICON:'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
@@ -62,7 +63,7 @@ class KyoconnectaiHPChatbot {
       :root {
         --primary-color: ${KyoconnectaiHPChatbot.config.PRIMARY_COLOR};
         --secondary-color: ${KyoconnectaiHPChatbot.config.SECONDARY_COLOR};
-        // /* --user-message-bg-color: ${KyoconnectaiHPChatbot.config.USER_MESSAGE_BG}; customized */
+        --user-message-bg-color: ${KyoconnectaiHPChatbot.config.USER_MESSAGE_BG}; // end user message color 
       }
 
       /* Original container styles preserved */
