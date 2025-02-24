@@ -4,10 +4,11 @@ class KyoconnectaiHPChatbot {
   static config = {
     PRIMARY_COLOR: '#000000',
     SECONDARY_COLOR: '#F0F4F8',
-    USER_MESSAGE_BG: '#28a745', //green
+    // USER_MESSAGE_BG: '#28a745', //green
     USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
-    CUSTOMIZED_ICON:'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
-    BOT_ICON: 'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
+    // CUSTOMIZED_ICON:'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
+    // BOT_ICON: 'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
+    BOT_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
     FREQUENT_QUESTIONS: [
       "Check-in and check-out times",
       "Available facilities",
@@ -59,7 +60,7 @@ class KyoconnectaiHPChatbot {
       :root {
         --primary-color: ${KyoconnectaiHPChatbot.config.PRIMARY_COLOR};
         --secondary-color: ${KyoconnectaiHPChatbot.config.SECONDARY_COLOR};
-        --user-message-bg-color: ${KyoconnectaiHPChatbot.config.USER_MESSAGE_BG};
+        // /* --user-message-bg-color: ${KyoconnectaiHPChatbot.config.USER_MESSAGE_BG}; customized */
       }
 
       /* Original container styles preserved */
@@ -193,8 +194,8 @@ class KyoconnectaiHPChatbot {
           transition: opacity 0.3s ease;
       }
       #chat-toggle img {
-          width: 100%;
-          height: 100%;
+          width: 100%; 
+          height: 100%; /* customize */
           border-radius: 50%;
           object-fit: cover;
           opacity: 1;
@@ -333,7 +334,7 @@ class KyoconnectaiHPChatbot {
     this.toggleButton = document.createElement('button');
     this.toggleButton.id = 'chat-toggle';
     this.toggleButton.innerHTML = `
-      <img src="${KyoconnectaiHPChatbot.config.CUSTOMIZED_ICON}" alt="Chatbot Logo">
+      <img src="${KyoconnectaiHPChatbot.config.BOT_ICON}" alt="Chatbot Logo">  //customized toggle button
       <i class="fas fa-chevron-down"></i>
     `;
     document.body.appendChild(this.toggleButton);
