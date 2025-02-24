@@ -10,12 +10,14 @@ class KyoconnectaiHPChatbot {
     // BOT_ICON: 'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
     BOT_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
     FREQUENT_QUESTIONS: [
-      "Check-in and check-out times",
-      "Available facilities",
-      "Contact Tamara",
-      "Site rules",
-      "About Parking",
-      "Price"
+      "Introduction to KyoConnectAI",
+      "What KyoConnectAI Does",
+      "Roadmap",
+      "Differentiation from Competitors",
+      "Mission & Unique Value Proposition (UVP)",
+      "Competitive Advantages",
+      "How KyoConnectAI Can Help (FAQs with Answers)",
+      "Founder Information"
     ],
     COPY: {
       header: "KyoConnectAI startup AI Agent",
