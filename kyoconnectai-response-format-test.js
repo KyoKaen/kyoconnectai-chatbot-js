@@ -96,7 +96,6 @@ class KyoconnectaiHPChatbot {
       return content; // Fallback to raw text
     }
   }
-}
 
 
   // =============== Style Injection ===============
@@ -510,14 +509,24 @@ class KyoconnectaiHPChatbot {
     const message = document.createElement('div');
     message.className = `message-container ${sender}-message-container`;
 
+    const formattedText = sender === 'bot' ? this.parseMarkdown(text): text;
     message.innerHTML = `
       <img src="${sender === 'user' ? KyoconnectaiHPChatbot.config.USER_ICON : KyoconnectaiHPChatbot.config.BOT_ICON}"
            class="message-icon"
            alt="${sender} icon">
       <div class="message-bubble ${sender}-message-bubble">
-        ${text}
+        ${formattedText}
       </div>
     `;
+    
+    // message.innerHTML = `
+    //   <img src="${sender === 'user' ? KyoconnectaiHPChatbot.config.USER_ICON : KyoconnectaiHPChatbot.config.BOT_ICON}"
+    //        class="message-icon"
+    //        alt="${sender} icon">
+    //   <div class="message-bubble ${sender}-message-bubble">
+    //     ${text}
+    //   </div>
+    // `;
 
     messagesDiv.appendChild(message);
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
