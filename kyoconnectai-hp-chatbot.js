@@ -113,6 +113,7 @@ class KyoconnectaiHPChatbot {
           border-bottom: 1px solid var(--secondary-color);
       }
       #kyoconnectai-hp-chatbot-frequent-questions h6 {
+          margin-top: 1px; /* Reduce large space*/
           margin-bottom: 6px;
           font-size: 0.9em;
           font-weight: bold;
