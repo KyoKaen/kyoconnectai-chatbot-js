@@ -11,11 +11,11 @@ class KyoconnectaiHPChatbot {
     // BOT_ICON: 'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
     BOT_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
     FREQUENT_QUESTIONS: [
-      "Introduction to KyoConnectAI",
+      // "Introduction to KyoConnectAI",
       "What KyoConnectAI Does",
       "Roadmap",
       "Founder Information", 
-      "Competitive Advantages",
+      // "Competitive Advantages",
       "Differentiation from Competitors",
       "Mission & Unique Value Proposition (UVP)",
       "How KyoConnectAI Can Help (FAQs with Answers)"
