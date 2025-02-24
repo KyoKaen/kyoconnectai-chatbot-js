@@ -391,13 +391,14 @@ class KyoconnectaiHPChatbot {
       this.state.isProcessing = true;
       this.toggleUIState(true); // Disable inputs
 
-      // Create loading element after validation
-      loading = this.createLoading();
-      this.container.querySelector('#kyoconnectai-hp-chatbot-messages').appendChild(loading);
-
+      //Add user message first
       this.state.questionCount++;
       this.addMessage(message, 'user');
       input.value = '';
+
+      // then Create loading element after validation
+      loading = this.createLoading();
+      this.container.querySelector('#kyoconnectai-hp-chatbot-messages').appendChild(loading);
 
       const response = await fetch(this.apiEndpoint, {
         method: 'POST',
