@@ -13,11 +13,11 @@ class KyoconnectaiHPChatbot {
       "Introduction to KyoConnectAI",
       "What KyoConnectAI Does",
       "Roadmap",
+      "Founder Information", 
+      "Competitive Advantages",
       "Differentiation from Competitors",
       "Mission & Unique Value Proposition (UVP)",
-      "Competitive Advantages",
-      "How KyoConnectAI Can Help (FAQs with Answers)",
-      "Founder Information"
+      "How KyoConnectAI Can Help (FAQs with Answers)"
     ],
     COPY: {
       header: "KyoConnectAI startup AI Agent",
