@@ -106,56 +106,34 @@ class KyoconnectaiHPChatbot {
       }
 
       /* Frequent Questions Section */
-        #kyoconnectai-hp-chatbot-frequent-questions {
-    padding: 8px 10px;
-    background: #f8f9fa;
-    border-top: 1px solid #dee2e6;
-  }
-  #kyoconnectai-hp-chatbot-frequent-questions h6 {
-    margin: 0 0 4px 0;
-    font-size: 0.85em;
-    color: #6c757d;
-  }
-  #frequentQuestions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-  }
-  .frequent-question-btn {
-    margin: 0;
-    padding: 4px 8px;
-    font-size: 0.8em;
-    line-height: 1.3;
-    flex: 1 0 auto;
-    max-width: 48%;
-  }
-      // #kyoconnectai-hp-chatbot-frequent-questions {
-      //     padding: 10px;
-      //     background: #fff;
-      //     border-top: 1px solid var(--secondary-color);
-      //     border-bottom: 1px solid var(--secondary-color);
-      // }
-      // #kyoconnectai-hp-chatbot-frequent-questions h6 {
-      //     margin-bottom: 6px;
-      //     font-size: 0.9em;
-      //     font-weight: bold;
-      // }
-      // #frequentQuestions {
-      //     display: flex;
-      //     flex-wrap: wrap;
-      // }
-      // .frequent-question-btn {
-      //     margin: 4px;
-      //     white-space: normal;
-      //     text-align: left;
-      //     font-size: 0.85em;
-      //     border: 1px solid var(--primary-color);
-      //     background: #fff;
-      //     color: var(--primary-color);
-      //     border-radius: 4px;
-      //     padding: 4px 8px;
-      //     cursor: pointer;
-      // }
+      #kyoconnectai-hp-chatbot-frequent-questions {
+          padding: 10px;
+          background: #fff;
+          border-top: 1px solid var(--secondary-color);
+          border-bottom: 1px solid var(--secondary-color);
+      }
+      #kyoconnectai-hp-chatbot-frequent-questions h6 {
+          margin-top: 1px; /* Reduce large space*/
+          margin-bottom: 6px;
+          font-size: 0.9em;
+          font-weight: bold;
+      }
+      #frequentQuestions {
+          display: flex;
+          flex-wrap: wrap;
+      }
+      .frequent-question-btn {
+          margin: 4px;
+          white-space: normal;
+          text-align: left;
+          font-size: 0.85em;
+          border: 1px solid var(--primary-color);
+          background: #fff;
+          color: var(--primary-color);
+          border-radius: 4px;
+          padding: 4px 8px;
+          cursor: pointer;
+      }
       .frequent-question-btn:hover {
           background: var(--primary-color);
           color: #fff;
@@ -275,29 +253,6 @@ class KyoconnectaiHPChatbot {
           color: white;
           font-size: 0.9em;
       }
-      
-//response format
-        .bot-message-bubble {
-    text-align: left;
-    white-space: pre-wrap;
-  }
-  .response-list {
-    margin: 8px 0;
-    padding-left: 20px;
-  }
-  .response-list li {
-    margin-bottom: 6px;
-    line-height: 1.4;
-  }
-  .bot-message-bubble a {
-    color: var(--primary-color);
-    text-decoration: underline;
-    word-break: break-word;
-  }
-  .bot-message-bubble strong {
-    color: #2d3748;
-  }
-  
               /* Loading Animation */
           .loading-dots {
               display: inline-block;
@@ -436,9 +391,15 @@ class KyoconnectaiHPChatbot {
       this.state.isProcessing = true;
       this.toggleUIState(true); // Disable inputs
 
-      // Create loading element after validation
+      // Add USER message first
+      this.state.questionCount++;
+      this.addMessage(message, 'user');
+      input.value = '';
+
+      //then Create loading element after validation
       loading = this.createLoading();
       this.container.querySelector('#kyoconnectai-hp-chatbot-messages').appendChild(loading);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight; // Force scroll to bottom
 
       this.state.questionCount++;
       this.addMessage(message, 'user');
@@ -506,23 +467,6 @@ class KyoconnectaiHPChatbot {
     });
   }
 
-  // Add new method to handle response formatting
-formatResponse(text) {
-  // Markdown parsing
-  let formatted = text
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
-    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>') // Links
-    .replace(/- (.*)/g, '• $1') // List items
-    .replace(/\n/g, '<br>'); // New lines
-
-  // Wrap lists in proper HTML
-  formatted = formatted.replace(/(•.*?(<br>|$))/g, '<ul class="response-list">$1</ul>');
-  formatted = formatted.replace(/• (.*?)(<br>|$)/g, '<li>$1</li>');
-
-  return formatted;
-}
-
-  
   addMessage(text, sender) {
     const messagesDiv = this.container.querySelector('#kyoconnectai-hp-chatbot-messages');
     const message = document.createElement('div');
@@ -533,8 +477,7 @@ formatResponse(text) {
            class="message-icon"
            alt="${sender} icon">
       <div class="message-bubble ${sender}-message-bubble">
-        // ${text}
-        ${sender === 'bot' ? this.formatResponse(text) : text}
+        ${text}
       </div>
     `;
 
