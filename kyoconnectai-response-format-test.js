@@ -333,6 +333,52 @@ class KyoconnectaiHPChatbot {
     font-size: 0.9em;
     animation: fadeIn 0.3s ease;
     }
+
+      .bot-message-bubble h3 {
+        color: var(--primary-color);
+        font-size: 1.1em;
+        margin: 15px 0 10px;
+      }
+
+      .bot-message-bubble ul,
+      .bot-message-bubble ol {
+        padding-left: 25px;
+        margin: 10px 0;
+      }
+
+      .bot-message-bubble li {
+        margin-bottom: 8px;
+        line-height: 1.5;
+      }
+
+      .bot-message-bubble table {
+        border-collapse: collapse;
+        margin: 15px 0;
+        width: 100%;
+        font-size: 0.85em;
+      }
+      .bot-message-bubble th {
+        background-color: #f8f9fa;
+        font-weight: 600;
+      }
+
+      .bot-message-bubble td,
+      .bot-message-bubble th {
+        border: 1px solid #dee2e6;
+        padding: 8px 10px;
+        text-align: left;
+      }
+
+      .bot-message-bubble a {
+        color: var(--primary-color);
+        text-decoration: underline;
+        word-break: break-all;
+      }
+
+      .bot-message-bubble strong {
+        color: var(--primary-color);
+        font-weight: 600;
+      } 
     `;
     document.head.appendChild(style);
   }
