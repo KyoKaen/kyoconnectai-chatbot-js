@@ -9,10 +9,10 @@ class KeywardChatbot {
     USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
     BOT_ICON: 'https://kyokaen.github.io/kyoconnectai-mock-usecase/keyward_logo.jpeg',
     FREQUENT_QUESTIONS: [
-      "What makes Key Ward different from traditional engineering software?",
       "How quickly can we expect ROI?",
       // "What engineering fields does Key Ward support?",
       // "How does Key Ward handle data security?",
+      "What Key Ward does",
       "Can I try Key Ward before purchasing?"
     ],
     COPY: {
@@ -108,7 +108,7 @@ class KeywardChatbot {
         bottom: 100px;
         right: 25px;
         width: 420px;
-        max-height: 700px;
+        max-height: 600px;
         background: white;
         border-radius: 15px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
