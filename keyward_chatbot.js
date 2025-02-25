@@ -1,24 +1,18 @@
 class KeywardChatbot {
   // =============== Configuration ===============
   static config = {
-    // // Add service configuration here
-    // API_CONFIG: {
-    //   SERVICE_NAME: "keyward-chatbot",
-    //   API_SUFFIX: "-1096582767898.europe-west1.run.app/chat"
-    // },
-    
     PRIMARY_COLOR: '#000000', //black
     SECONDARY_COLOR: '#F0F4F8',
     USER_MESSAGE_BG: '#000000', //black
-    
+
     // USER_MESSAGE_BG: '#28a745', //green
     USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
     BOT_ICON: 'https://kyokaen.github.io/kyoconnectai-mock-usecase/keyward_logo.jpeg',
     FREQUENT_QUESTIONS: [
       "What makes Key Ward different from traditional engineering software?",
       "How quickly can we expect ROI?",
-      "What engineering fields does Key Ward support?",
-      "How does Key Ward handle data security?",
+      // "What engineering fields does Key Ward support?",
+      // "How does Key Ward handle data security?",
       "Can I try Key Ward before purchasing?"
     ],
     COPY: {
@@ -42,11 +36,6 @@ class KeywardChatbot {
   constructor(config = {}) {
       // Add dependency loader first
     this.loadDependencies().then(() => {
-      
-      //   // Construct API URL using static config
-      // const { SERVICE_NAME, API_SUFFIX } = KeywardChatbot.config.API_CONFIG;
-      // this.apiEndpoint = config.apiUrl || 
-      //                   `https://${SERVICE_NAME}${API_SUFFIX}`;
 
     // Set API endpoint
     this.apiEndpoint = config.apiUrl || window.CHATBOT_API || '/chat';
@@ -114,13 +103,12 @@ class KeywardChatbot {
         --user-message-bg-color: ${KeywardChatbot.config.USER_MESSAGE_BG}; // end user message color
       }
 
-      /* Original container styles preserved */
       #keyward_chatbot-container {
         position: fixed;
-        bottom: 90px;
+        bottom: 100px;
         right: 25px;
         width: 420px;
-        max-height: 600px;
+        max-height: 700px;
         background: white;
         border-radius: 15px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
