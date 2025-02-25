@@ -21,7 +21,7 @@ class KeywardChatbot {
       initialMessage: "Hi! What can I help you with keyward?",
       inputPlaceholder: "Ask your question...",
       footerHTML: `Powered by <a href="https://kyoconnectai.com/" target="_blank">KyoConnectAI.com</a> |
-                   AI can make mistakes. check important infor: https://www.keyward.io/`
+                   AI can make mistakes.`
     },
     behavior: {
       maxQuestions: 20,
