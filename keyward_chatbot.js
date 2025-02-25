@@ -48,7 +48,7 @@ class KeywardChatbot {
       // this.apiEndpoint = config.apiUrl || 
       //                   `https://${SERVICE_NAME}${API_SUFFIX}`;
 
-    Set API endpoint
+    // Set API endpoint
     this.apiEndpoint = config.apiUrl || window.CHATBOT_API || '/chat';
 
     this.state = {
