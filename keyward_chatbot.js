@@ -1,11 +1,11 @@
 class KeywardChatbot {
   // =============== Configuration ===============
   static config = {
-    // Add service configuration here
-    API_CONFIG: {
-      SERVICE_NAME: "keyward-chatbot",
-      API_SUFFIX: "-1096582767898.europe-west1.run.app/chat"
-    },
+    // // Add service configuration here
+    // API_CONFIG: {
+    //   SERVICE_NAME: "keyward-chatbot",
+    //   API_SUFFIX: "-1096582767898.europe-west1.run.app/chat"
+    // },
     
     PRIMARY_COLOR: '#000000', //black
     SECONDARY_COLOR: '#F0F4F8',
@@ -43,13 +43,13 @@ class KeywardChatbot {
       // Add dependency loader first
     this.loadDependencies().then(() => {
       
-        // Construct API URL using static config
-      const { SERVICE_NAME, API_SUFFIX } = KeywardChatbot.config.API_CONFIG;
-      this.apiEndpoint = config.apiUrl || 
-                        `https://${SERVICE_NAME}${API_SUFFIX}`;
+      //   // Construct API URL using static config
+      // const { SERVICE_NAME, API_SUFFIX } = KeywardChatbot.config.API_CONFIG;
+      // this.apiEndpoint = config.apiUrl || 
+      //                   `https://${SERVICE_NAME}${API_SUFFIX}`;
 
-    // Set API endpoint
-    // this.apiEndpoint = config.apiUrl || window.CHATBOT_API || '/chat';
+    Set API endpoint
+    this.apiEndpoint = config.apiUrl || window.CHATBOT_API || '/chat';
 
     this.state = {
       isOpen: false,
@@ -584,6 +584,10 @@ class KeywardChatbot {
 }
 
 // Initialization
+const SERVICE_NAME = "keyward-chatbot";
+const API_SUFFIX = "-1096582767898.europe-west1.run.app/chat";
+const apiUrl = `https://${SERVICE_NAME}${API_SUFFIX}`;
+
 if (document.readyState === 'complete') {
   new KeywardChatbot({ apiUrl });
 } else {
