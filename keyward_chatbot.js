@@ -16,7 +16,7 @@ class KeywardChatbot {
       "Can I try Key Ward before purchasing?"
     ],
     COPY: {
-      header: "Key startup AI Agent",
+      header: "Keyward AI Agent",
       systemMessage: "Please note: You can ask up to <strong>20 questions</strong> about keyward",
       initialMessage: "Hi! What can I help you with keyward?",
       inputPlaceholder: "Ask your question...",
