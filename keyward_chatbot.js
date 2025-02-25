@@ -1,10 +1,16 @@
 class KeywardChatbot {
-
   // =============== Configuration ===============
   static config = {
+    // Add service configuration here
+    API_CONFIG: {
+      SERVICE_NAME: "keyward-chatbot",
+      API_SUFFIX: "-1096582767898.europe-west1.run.app/chat"
+    },
+    
     PRIMARY_COLOR: '#000000', //black
     SECONDARY_COLOR: '#F0F4F8',
     USER_MESSAGE_BG: '#000000', //black
+    
     // USER_MESSAGE_BG: '#28a745', //green
     USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
     BOT_ICON: 'https://kyokaen.github.io/kyoconnectai-mock-usecase/keyward_logo.jpeg',
@@ -36,9 +42,14 @@ class KeywardChatbot {
   constructor(config = {}) {
       // Add dependency loader first
     this.loadDependencies().then(() => {
+      
+        // Construct API URL using static config
+      const { SERVICE_NAME, API_SUFFIX } = KeywardChatbot.config.API_CONFIG;
+      this.apiEndpoint = config.apiUrl || 
+                        `https://${SERVICE_NAME}${API_SUFFIX}`;
 
     // Set API endpoint
-    this.apiEndpoint = config.apiUrl || window.CHATBOT_API || '/chat';
+    // this.apiEndpoint = config.apiUrl || window.CHATBOT_API || '/chat';
 
     this.state = {
       isOpen: false,
@@ -513,15 +524,6 @@ class KeywardChatbot {
         ${formattedText}
       </div>
     `;
-    
-    // message.innerHTML = `
-    //   <img src="${sender === 'user' ? KeywardChatbot.config.USER_ICON : KeywardChatbot.config.BOT_ICON}"
-    //        class="message-icon"
-    //        alt="${sender} icon">
-    //   <div class="message-bubble ${sender}-message-bubble">
-    //     ${text}
-    //   </div>
-    // `;
 
     messagesDiv.appendChild(message);
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
@@ -583,10 +585,7 @@ class KeywardChatbot {
 
 // Initialization
 if (document.readyState === 'complete') {
-  new KeywardChatbot({
-    apiUrl: 'https://keyward_chatbot-1096582767898.europe-west1.run.app/chat'
-  });
-
+  new KeywardChatbot({ apiUrl });
 } else {
-  window.addEventListener('DOMContentLoaded', () => new KeywardChatbot({ apiUrl: 'https://keyward_chatbot-1096582767898.europe-west1.run.app/chat'}));
+  window.addEventListener('DOMContentLoaded', () => new KeywardChatbot({ apiUrl }));
 }
