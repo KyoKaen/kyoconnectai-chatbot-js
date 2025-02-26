@@ -9,10 +9,11 @@ class KeywardChatbot {
     USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
     BOT_ICON: 'https://kyokaen.github.io/kyoconnectai-mock-usecase/keyward_logo.jpeg',
     FREQUENT_QUESTIONS: [
-      "How quickly can we expect ROI?",
+      // "How quickly can we expect ROI?",
       // "What engineering fields does Key Ward support?",
       // "How does Key Ward handle data security?",
-      "What Key Ward does",
+      "What Key Ward does?",
+      "Who is the founder?",
       "Can I try Key Ward before purchasing?"
     ],
     COPY: {
