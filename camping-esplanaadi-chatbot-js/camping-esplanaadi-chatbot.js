@@ -67,7 +67,7 @@ class CampingChatbot {
         position: fixed;
         bottom: 90px;
         right: 25px;
-        width: 420px;
+        width: 450px;
         max-height: 650px;
         background: white;
         border-radius: 15px;
