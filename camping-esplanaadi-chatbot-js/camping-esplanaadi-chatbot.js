@@ -242,12 +242,13 @@ class CampingChatbot {
       .bot-message-bubble {
           background: white;
           border: 1px solid #dee2e6;
-          font-size: 0.9em;
+          font-size: 1.0em; // tamara said message is too small 0.9 ->1.0
+
       }
       .user-message-bubble {
           background: var(--user-message-bg-color);
           color: white;
-          font-size: 0.9em;
+          font-size: 1.0em; // tamara said message is too small 0.9 ->1.0
       }
               /* Loading Animation */
           .loading-dots {
@@ -284,7 +285,7 @@ class CampingChatbot {
     border-radius: 10px;
     padding: 10px;
     margin: 15px 0;
-    font-size: 0.9em;
+    font-size: 1.0em; // tamara said message is too small
     animation: fadeIn 0.3s ease;
     }
     `;
