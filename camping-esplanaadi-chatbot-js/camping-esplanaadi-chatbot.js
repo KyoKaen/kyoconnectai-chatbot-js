@@ -109,7 +109,8 @@ class CampingChatbot {
           border-bottom: 1px solid var(--secondary-color);
       }
       #camping-chatbot-frequent-questions h6 {
-          margin-bottom: 6px;
+          // margin-bottom: 6px;
+          margin-top: 1px; /* Reduce large space*/
           font-size: 0.9em;
           font-weight: bold;
       }
