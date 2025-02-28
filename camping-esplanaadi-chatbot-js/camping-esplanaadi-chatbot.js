@@ -173,7 +173,7 @@ class CampingChatbot {
       /* Floating Toggle Button */
       #chat-toggle {
           position: fixed;
-          bottom: 50px; // move up for test
+          bottom: 50px; 
           right: 25px;
           width: 56px;
           height: 56px;
