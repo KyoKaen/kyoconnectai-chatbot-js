@@ -1,4 +1,4 @@
-class Camping-de-lyonChatbot {
+class CampingChatbot {
 
   // =============== Configuration ===============
   static config = {
@@ -102,9 +102,9 @@ class Camping-de-lyonChatbot {
     const style = document.createElement('style');
     style.textContent = `
       :root {
-        --primary-color: ${Camping-de-lyonChatbot.config.PRIMARY_COLOR};
-        --secondary-color: ${Camping-de-lyonChatbot.config.SECONDARY_COLOR};
-        --user-message-bg-color: ${Camping-de-lyonChatbot.config.USER_MESSAGE_BG}; // end user message color
+        --primary-color: ${CampingChatbot.config.PRIMARY_COLOR};
+        --secondary-color: ${CampingChatbot.config.SECONDARY_COLOR};
+        --user-message-bg-color: ${CampingChatbot.config.USER_MESSAGE_BG}; // end user message color
       }
 
       /* Original container styles preserved */
@@ -343,18 +343,18 @@ class Camping-de-lyonChatbot {
     this.container.id = 'camping-de-lyon-chatbot-container';
     this.container.innerHTML = `
       <div id="camping-de-lyon-chatbot-header">
-        <img src="${Camping-de-lyonChatbot.config.BOT_ICON}" alt="Chatbot Logo" width="40" height="40" style="border-radius:50%; margin-right:10px;">
-        <h4>${Camping-de-lyonChatbot.config.COPY.header}</h4>
+        <img src="${CampingChatbot.config.BOT_ICON}" alt="Chatbot Logo" width="40" height="40" style="border-radius:50%; margin-right:10px;">
+        <h4>${CampingChatbot.config.COPY.header}</h4>
       </div>
 
       <div id="camping-de-lyon-chatbot-messages">
         <div class="system-message">
-          ${Camping-de-lyonChatbot.config.COPY.systemMessage}
+          ${CampingChatbot.config.COPY.systemMessage}
         </div>
         <div class="message-container bot-message-container">
-          <img src="${Camping-de-lyonChatbot.config.BOT_ICON}" class="message-icon" alt="Bot Icon">
+          <img src="${CampingChatbot.config.BOT_ICON}" class="message-icon" alt="Bot Icon">
           <div class="message-bubble bot-message-bubble">
-            ${Camping-de-lyonChatbot.config.COPY.initialMessage}
+            ${CampingChatbot.config.COPY.initialMessage}
           </div>
         </div>
       </div>
@@ -365,12 +365,12 @@ class Camping-de-lyonChatbot {
       </div>
 
       <div id="camping-de-lyon-chatbot-input-area">
-        <input type="text" id="camping-de-lyon-chatbot-input" placeholder="${Camping-de-lyonChatbot.config.COPY.inputPlaceholder}">
+        <input type="text" id="camping-de-lyon-chatbot-input" placeholder="${CampingChatbot.config.COPY.inputPlaceholder}">
         <button id="camping-de-lyon-chatbot-send">Send</button>
       </div>
 
       <div id="camping-de-lyon-chatbot-footer">
-        ${Camping-de-lyonChatbot.config.COPY.footerHTML}
+        ${CampingChatbot.config.COPY.footerHTML}
       </div>
     `;
     document.body.appendChild(this.container);
@@ -379,7 +379,7 @@ class Camping-de-lyonChatbot {
     this.toggleButton = document.createElement('button');
     this.toggleButton.id = 'chat-toggle';
     this.toggleButton.innerHTML = `
-      <img src="${Camping-de-lyonChatbot.config.BOT_ICON}" alt="Chatbot Logo">  //customized toggle button
+      <img src="${CampingChatbot.config.BOT_ICON}" alt="Chatbot Logo">  //customized toggle button
       <i class="fas fa-chevron-down"></i>
     `;
     document.body.appendChild(this.toggleButton);
@@ -415,14 +415,14 @@ class Camping-de-lyonChatbot {
     // Frontend validations
     if (!message) return;
 
-    if (message.length > Camping-de-lyonChatbot.config.behavior.maxContentLength) {
-      this.addSystemMessage(Camping-de-lyonChatbot.config.behavior.limitMessages.lengthExceeded);
+    if (message.length > CampingChatbot.config.behavior.maxContentLength) {
+      this.addSystemMessage(CampingChatbot.config.behavior.limitMessages.lengthExceeded);
       input.value = '';
       return;
     }
 
-    if (this.state.questionCount >= Camping-de-lyonChatbot.config.behavior.maxQuestions) {
-      this.addSystemMessage(Camping-de-lyonChatbot.config.behavior.limitMessages.questionLimit);
+    if (this.state.questionCount >= CampingChatbot.config.behavior.maxQuestions) {
+      this.addSystemMessage(CampingChatbot.config.behavior.limitMessages.questionLimit);
       input.value = '';
       return;
     }
@@ -509,7 +509,7 @@ class Camping-de-lyonChatbot {
 
     const formattedText = sender === 'bot' ? this.parseMarkdown(text): text;
     message.innerHTML = `
-      <img src="${sender === 'user' ? Camping-de-lyonChatbot.config.USER_ICON : Camping-de-lyonChatbot.config.BOT_ICON}"
+      <img src="${sender === 'user' ? CampingChatbot.config.USER_ICON : CampingChatbot.config.BOT_ICON}"
            class="message-icon"
            alt="${sender} icon">
       <div class="message-bubble ${sender}-message-bubble">
@@ -525,7 +525,7 @@ class Camping-de-lyonChatbot {
     const loading = document.createElement('div');
     loading.className = 'message-container bot-message-container';
     loading.innerHTML = `
-      <img src="${Camping-de-lyonChatbot.config.BOT_ICON}" class="message-icon" alt="Loading">
+      <img src="${CampingChatbot.config.BOT_ICON}" class="message-icon" alt="Loading">
       <div class="message-bubble bot-message-bubble loading">
         <div class="loading-dots">
           <span></span>
@@ -551,7 +551,7 @@ class Camping-de-lyonChatbot {
   // Update frequent questions initialization
   initFrequentQuestions() {
     const container = document.getElementById('frequentQuestions');
-    Camping-de-lyonChatbot.config.FREQUENT_QUESTIONS.forEach(question => {
+    CampingChatbot.config.FREQUENT_QUESTIONS.forEach(question => {
       const button = document.createElement('button');
       button.className = 'frequent-question-btn';
       button.textContent = question;
@@ -577,10 +577,10 @@ class Camping-de-lyonChatbot {
 
 // Initialization
 if (document.readyState === 'complete') {
-  new Camping-de-lyonChatbot({
+  new CampingChatbot({
     apiUrl: 'https://camping-de-lyon-chatbot-1096582767898.europe-west1.run.app/chat'
   });
 
 } else {
-  window.addEventListener('DOMContentLoaded', () => new Camping-de-lyonChatbot({ apiUrl: 'https://camping-de-lyon-chatbot-1096582767898.europe-west1.run.app/chat'}));
+  window.addEventListener('DOMContentLoaded', () => new CampingChatbot({ apiUrl: 'https://camping-de-lyon-chatbot-1096582767898.europe-west1.run.app/chat'}));
 }
