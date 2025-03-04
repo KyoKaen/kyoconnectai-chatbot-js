@@ -114,7 +114,7 @@ class KyoconnectaiHPChatbot {
         bottom: 90px;
         right: 25px;
         width: 420px;
-        max-height: 600px;
+        height: 650px;
         background: white;
         border-radius: 15px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
