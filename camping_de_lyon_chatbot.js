@@ -7,7 +7,8 @@ class CampingChatbot {
     USER_MESSAGE_BG: '#ca5b24', //camping-de-lyon orange
     // USER_MESSAGE_BG: '#28a745', //green
     USER_ICON: 'https://kyokaen.github.io/kyoconnectai-mock-usecase/camping-de-lyon-city-camp-logo.jpg',
-    BOT_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
+    BOT_ICON: 'https://kyokaen.github.io/kyoconnectai-mock-usecase/camping-de-lyon-city-camp-logo.jpg',
+    // BOT_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
     FREQUENT_QUESTIONS: [
       "Location", 
       "Accommodation options", 
