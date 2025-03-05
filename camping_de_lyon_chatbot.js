@@ -376,11 +376,11 @@ class CampingChatbot {
     `;
     document.body.appendChild(this.container);
 
-    // Toggle Button
+    // Toggle Button  //customized toggle button
     this.toggleButton = document.createElement('button');
     this.toggleButton.id = 'chat-toggle';
     this.toggleButton.innerHTML = `
-      <img src="${CampingChatbot.config.BOT_ICON}" alt="Chatbot Logo">  //customized toggle button
+      <img src="${CampingChatbot.config.BOT_ICON}" alt="Chatbot Logo"> 
       <i class="fas fa-chevron-down"></i>
     `;
     document.body.appendChild(this.toggleButton);
