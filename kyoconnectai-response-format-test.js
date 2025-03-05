@@ -632,14 +632,24 @@ class KyoconnectaiHPChatbot {
   }
 }
 
-const apiUrl ="https://kyoconnectai-hp-chatbot-genai-1096582767898.europe-west1.run.app"
-// Initialization
-// const SERVICE_NAME="kyoconnectai-hp-chatbot-genai"
-// const API_SUFFIX = "-1096582767898.europe-west1.run.app/chat";
-// const apiUrl = `https://${SERVICE_NAME}${API_SUFFIX}`;
+// const apiUrl ="https://kyoconnectai-hp-chatbot-genai-1096582767898.europe-west1.run.app/"
+// // Initialization
+// // const SERVICE_NAME="kyoconnectai-hp-chatbot-genai"
+// // const API_SUFFIX = "-1096582767898.europe-west1.run.app/chat";
+// // const apiUrl = `https://${SERVICE_NAME}${API_SUFFIX}`;
 
+// if (document.readyState === 'complete') {
+//   new KyoconnectaiHPChatbot({ apiUrl });
+// } else {
+//   window.addEventListener('DOMContentLoaded', () => new KyoconnectaiHPChatbot({ apiUrl }));
+// }
+
+// Initialization
 if (document.readyState === 'complete') {
-  new KyoconnectaiHPChatbot({ apiUrl });
+  new KyoconnectaiHPChatbot({
+    apiUrl: 'https://kyoconnectai-hp-chatbot-genai-1096582767898.europe-west1.run.app/chat'
+  });
+
 } else {
-  window.addEventListener('DOMContentLoaded', () => new KyoconnectaiHPChatbot({ apiUrl }));
+  window.addEventListener('DOMContentLoaded', () => new KyoconnectaiHPChatbot({ apiUrl: 'https://kyoconnectai-hp-chatbot-genai-1096582767898.europe-west1.run.app/chat'}));
 }
