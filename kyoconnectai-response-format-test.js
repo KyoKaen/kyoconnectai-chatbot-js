@@ -633,11 +633,12 @@ class KyoconnectaiHPChatbot {
 }
 
 // Initialization
-if (document.readyState === 'complete') {
-  new KyoconnectaiHPChatbot({
-    apiUrl: 'https://kyoconnectai-hp-chatbot-1096582767898.europe-west1.run.app/chat'
-  });
+const SERVICE_NAME="kyoconnectai-hp-chatbot-genai"
+const API_SUFFIX = "-1096582767898.europe-west1.run.app/chat";
+const apiUrl = `https://${SERVICE_NAME}${API_SUFFIX}`;
 
+if (document.readyState === 'complete') {
+  new KyoconnectaiHPChatbot({ apiUrl });
 } else {
-  window.addEventListener('DOMContentLoaded', () => new KyoconnectaiHPChatbot({ apiUrl: 'https://kyoconnectai-hp-chatbot-1096582767898.europe-west1.run.app/chat'}));
+  window.addEventListener('DOMContentLoaded', () => new KyoconnectaiHPChatbot({ apiUrl }));
 }
