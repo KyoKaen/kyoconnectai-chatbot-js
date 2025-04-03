@@ -1,27 +1,57 @@
 class CampingChatbot {
 
   // =============== Configuration ===============
-  static config = {
-    PRIMARY_COLOR: '#000000',
-    SECONDARY_COLOR: '#F0F4F8',
-    USER_MESSAGE_BG: '#28a745', // green
-    USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
-    CUSTOMIZED_ICON: 'https://www.belairpornichet.fr/images/favicons/Belair/favicon-32x32.png',
-    BOT_ICON: 'https://www.belairpornichet.fr/images/favicons/Belair/favicon-32x32.png',
+  // static config = {
+  //   PRIMARY_COLOR: '#000000',
+  //   SECONDARY_COLOR: '#F0F4F8',
+  //   USER_MESSAGE_BG: '#28a745', // green
+  //   USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
+  //   CUSTOMIZED_ICON: 'https://www.belairpornichet.fr/images/favicons/Belair/favicon-32x32.png',
+  //   BOT_ICON: 'https://www.belairpornichet.fr/images/favicons/Belair/favicon-32x32.png',
     
-    // -----------update the camping name here----------
-    CAMPING_NAME: "Camping Bel Air",
-    // ------------------------------------------ 
+  //   // -----------update the camping name here----------
+  //   CAMPING_NAME: "Camping Bel Air",
+  //   // ------------------------------------------ 
     
-    FREQUENT_QUESTIONS: [
-      "Check-in and check-out times",
-      "Available facilities",
-      "Contact",
-      "Site rules",
-      "About Parking",
-      "Price"
-    ],
-     COPY: {
+  //   FREQUENT_QUESTIONS: [
+  //     "Check-in and check-out times",
+  //     "Available facilities",
+  //     "Contact",
+  //     "Site rules",
+  //     "About Parking",
+  //     "Price"
+  //   ],
+  //    COPY: {
+  //    header: `${CampingChatbot.config.CAMPING_NAME} AI assistant`,
+  //    systemMessage: `Please note: You can ask up to <strong>20 questions</strong> about ${CampingChatbot.config.CAMPING_NAME}`,
+  //    initialMessage: `Hi! What can I help you with ${CampingChatbot.config.CAMPING_NAME}?`,
+  //    inputPlaceholder: "Ask your question...",
+  //    footerHTML: `Powered by <a href="https://kyoconnectai.com/" target="_blank">KyoConnectAI.com</a> |
+  //                 AI can make mistakes. Verify important information.`
+  //  },
+   // =============== Configuration ===============
+ static config = {
+   PRIMARY_COLOR: '#000000',
+   SECONDARY_COLOR: '#F0F4F8',
+   USER_MESSAGE_BG: '#28a745', // green
+   USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
+   CUSTOMIZED_ICON: 'https://www.belairpornichet.fr/images/favicons/Belair/favicon-32x32.png',
+   BOT_ICON: 'https://www.belairpornichet.fr/images/favicons/Belair/favicon-32x32.png',
+
+   // --- Define the campsite name once here ---
+   CAMPING_NAME: "Camping Bel Air",
+   // ------------------------------------------
+
+   FREQUENT_QUESTIONS: [
+     "Check-in and check-out times",
+     "Available facilities",
+     "Contact",
+     "Site rules",
+     "About Parking",
+     "Price"
+   ],
+   COPY: {
+     // Use template literals `${...}` to insert the variable
      header: `${CampingChatbot.config.CAMPING_NAME} AI assistant`,
      systemMessage: `Please note: You can ask up to <strong>20 questions</strong> about ${CampingChatbot.config.CAMPING_NAME}`,
      initialMessage: `Hi! What can I help you with ${CampingChatbot.config.CAMPING_NAME}?`,
