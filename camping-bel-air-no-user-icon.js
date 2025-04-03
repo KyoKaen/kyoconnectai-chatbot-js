@@ -551,14 +551,29 @@ class CampingChatbot {
     const message = document.createElement('div');
     message.className = `message-container ${sender}-message-container`;
 
-    const formattedText = sender === 'bot' ? this.parseMarkdown(text): text;
-    message.innerHTML = `
-      <img src="${sender === 'bot' ? CampingChatbot.config.BOT_ICON : ''}"
-           class="message-icon" alt="${sender} icon">
-      <div class="message-bubble ${sender}-message-bubble">
-        ${formattedText}
-      </div>
-    `;
+    // const formattedText = sender === 'bot' ? this.parseMarkdown(text): text;
+    // message.innerHTML = `
+    //   <img src="${sender === 'bot' ? CampingChatbot.config.BOT_ICON : ''}"
+    //        class="message-icon" alt="${sender} icon">
+    //   <div class="message-bubble ${sender}-message-bubble">
+    //     ${formattedText}
+    //   </div>
+    // `;
+
+     // Conditionally create the icon HTML only for the bot
+   const iconHtml = sender === 'bot'
+       ? `<img src="${CampingChatbot.config.BOT_ICON}" class="message-icon" alt="Bot icon">`
+       : ''; // Empty string for user, so no icon is rendered
+
+   const formattedText = sender === 'bot' ? this.parseMarkdown(text) : text;
+
+   // Use the iconHtml variable which is empty for the user
+   message.innerHTML = `
+     ${iconHtml}
+     <div class="message-bubble ${sender}-message-bubble">
+       ${formattedText}
+     </div>
+   `;
     
 
     messagesDiv.appendChild(message);
