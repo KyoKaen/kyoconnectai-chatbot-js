@@ -8,6 +8,11 @@ class CampingChatbot {
     USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
     CUSTOMIZED_ICON: 'https://www.belairpornichet.fr/images/favicons/Belair/favicon-32x32.png',
     BOT_ICON: 'https://www.belairpornichet.fr/images/favicons/Belair/favicon-32x32.png',
+    
+    // -----------update the camping name here----------
+    CAMPING_NAME: "Camping Bel Air",
+    // ------------------------------------------ 
+    
     FREQUENT_QUESTIONS: [
       "Check-in and check-out times",
       "Available facilities",
@@ -16,14 +21,14 @@ class CampingChatbot {
       "About Parking",
       "Price"
     ],
-    COPY: {
-      header: "Camping Bel Air AI assistant",
-      systemMessage: "Please note: You can ask up to <strong>20 questions</strong> about Camping Bel Air",
-      initialMessage: "Hi! What can I help you with Camping Bel Air?",
-      inputPlaceholder: "Ask your question...",
-      footerHTML: `Powered by <a href="https://kyoconnectai.com/" target="_blank">KyoConnectAI.com</a> |
-                   AI can make mistakes. Verify important information.`
-    },
+     COPY: {
+     header: `${CampingChatbot.config.CAMPING_NAME} AI assistant`,
+     systemMessage: `Please note: You can ask up to <strong>20 questions</strong> about ${CampingChatbot.config.CAMPING_NAME}`,
+     initialMessage: `Hi! What can I help you with ${CampingChatbot.config.CAMPING_NAME}?`,
+     inputPlaceholder: "Ask your question...",
+     footerHTML: `Powered by <a href="https://kyoconnectai.com/" target="_blank">KyoConnectAI.com</a> |
+                  AI can make mistakes. Verify important information.`
+   },
     behavior: {
       maxQuestions: 20,
       maxContentLength: 1000, // Frontend validation
