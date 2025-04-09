@@ -4,9 +4,9 @@ class CampingChatbot {
 
   // =============== Configuration ===============
  static config = {
-   PRIMARY_COLOR: '#000000',
+   PRIMARY_COLOR: '#e8b444', //change from black to orange
    SECONDARY_COLOR: '#F0F4F8',
-   USER_MESSAGE_BG: '#e8b444', // orange or #fff?
+   USER_MESSAGE_BG: '#e8b444', // orange 
    USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
    CUSTOMIZED_ICON: 'https://www.belairpornichet.fr/images/favicons/Belair/favicon-32x32.png',
    BOT_ICON: 'https://www.belairpornichet.fr/images/favicons/Belair/favicon-32x32.png',
@@ -227,7 +227,7 @@ class CampingChatbot {
           right: 25px;
           width: 56px;
           height: 56px;
-          background: #000;
+          background: #e8b444; 
           border-radius: 50%;
           border: none;
           cursor: pointer;
