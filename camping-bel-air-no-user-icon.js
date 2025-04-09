@@ -4,7 +4,7 @@ class CampingChatbot {
 
   // =============== Configuration ===============
  static config = {
-   PRIMARY_COLOR: '#e8b444', //change from black to orange
+   PRIMARY_COLOR: '#000000', // black
    SECONDARY_COLOR: '#F0F4F8',
    USER_MESSAGE_BG: '#e8b444', // orange 
    USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
@@ -198,7 +198,7 @@ class CampingChatbot {
           border-radius: 4px;
       }
       #chatbot-send {
-          background: var(--primary-color);
+          background: var(--user-message-bg-color);
           color: white;
           border: none;
           padding: 8px 12px;
