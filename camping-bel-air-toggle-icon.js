@@ -22,7 +22,7 @@ class CampingChatbot {
      "Site rules",
      "Location",
      "Parking Policy",
-     "About us"
+     "The story of Camping Bel Air"
    ],
    COPY: {
      header: `${campingName} AI assistant`,
