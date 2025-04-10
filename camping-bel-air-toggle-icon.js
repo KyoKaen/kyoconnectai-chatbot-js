@@ -20,7 +20,7 @@ class CampingChatbot {
      "Available facilities",
      "Contact",
      "Site rules",
-     "Location"
+     "Location",
      "Parking Policy",
      "About us"
    ],
