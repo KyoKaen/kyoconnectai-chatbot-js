@@ -20,8 +20,9 @@ class CampingChatbot {
      "Available facilities",
      "Contact",
      "Site rules",
-     "About Parking",
-     "Price"
+     "Location"
+     "Parking Policy",
+     "About us"
    ],
    COPY: {
      header: `${campingName} AI assistant`,
