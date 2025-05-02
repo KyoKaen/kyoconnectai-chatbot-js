@@ -717,7 +717,7 @@ class CampingChatbot {
 
 // ================== Initialization ==================
 // Define API URL (ensure SERVICE_NAME matches your Cloud Run service)
-const SERVICE_NAME="camping-bel-air-chatbot"; // Example service name
+const SERVICE_NAME="elp-new-venture-demo-freeze-june"; // Example service name
 const API_SUFFIX = "-1096582767898.europe-west1.run.app/chat"; // Your specific suffix
 const apiUrl = `https://${SERVICE_NAME}${API_SUFFIX}`;
 
