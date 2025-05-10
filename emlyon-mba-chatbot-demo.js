@@ -9,17 +9,15 @@ class CampingChatbot {
     CUSTOMIZED_ICON: 'https://kyokaen.github.io/kyoconnectai-mock-usecase/emlyon-logo.png',
     BOT_ICON: 'https://kyokaen.github.io/kyoconnectai-mock-usecase/emlyon-logo.png',
     FREQUENT_QUESTIONS: [
-      "Check-in and check-out times",
-      "Available facilities",
-      "Contact Tamara",
-      "Site rules",
-      "About Parking",
-      "Price"
+      "admission requirements",
+      "Available scholarships",
+      "tuition fee",
+      "Duration and format of IMBA program"
     ],
     COPY: {
-      header: "Camping Esplanaadi AI Agent",
+      header: "EMLyon MBA AI Assistant",
       systemMessage: "Please note: You can ask up to <strong>20 questions</strong> about Camping Esplanaadi",
-      initialMessage: "Hi! What can I help you with Camping Esplanaadi?",
+      initialMessage: "Hi! What can I help you with EMlyon MBA program?",
       inputPlaceholder: "Ask your question...",
       footerHTML: `Powered by <a href="https://kyoconnectai.com/" target="_blank">KyoConnectAI.com</a> |
                    AI can make mistakes. Verify important info with Tamara.`
