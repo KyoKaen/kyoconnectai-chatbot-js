@@ -717,7 +717,8 @@ class EnjadeChabot {
 
 // ================== Initialization ==================
 // Define API URL (ensure SERVICE_NAME matches your Cloud Run service)
-const SERVICE_NAME="elp-new-venture-demo-freeze-june"; // Example service name
+const SERVICE_NAME="enjade-fr"; // Example service name
+// https://enjade-fr-1096582767898.europe-west1.run.app
 const API_SUFFIX = "-1096582767898.europe-west1.run.app/chat"; // Your specific suffix
 const apiUrl = `https://${SERVICE_NAME}${API_SUFFIX}`;
 
