@@ -8,8 +8,9 @@ class EnjadeChabot {
    SECONDARY_COLOR: '#F0F4F8',
    USER_MESSAGE_BG: '#e8b444', // orange
    // USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg', // Keep this if needed elsewhere, not used for user messages anymore
-   CUSTOMIZED_ICON: 'https://images.squarespace-cdn.com/content/v1/6782c81bc9e926610d7efa9d/eb289d11-869a-4c50-92c6-7b4de1c72eeb/favicon.ico?format=100w',
-   BOT_ICON: 'https://images.squarespace-cdn.com/content/v1/6782c81bc9e926610d7efa9d/eb289d11-869a-4c50-92c6-7b4de1c72eeb/favicon.ico?format=100w',
+   CUSTOMIZED_ICON: 'https://images.squarespace-cdn.com/content/v1/6782c81bc9e926610d7efa9d/517763a3-179d-4ffc-84e5-e6f44bf08c7f/Logo+v2.png',
+  // https://images.squarespace-cdn.com/content/v1/6782c81bc9e926610d7efa9d/517763a3-179d-4ffc-84e5-e6f44bf08c7f/Logo+v2.png
+   BOT_ICON: 'https://images.squarespace-cdn.com/content/v1/6782c81bc9e926610d7efa9d/517763a3-179d-4ffc-84e5-e6f44bf08c7f/Logo+v2.png',
 // <link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/6782c81bc9e926610d7efa9d/eb289d11-869a-4c50-92c6-7b4de1c72eeb/favicon.ico?format=100w">
    // --- Define the Enjade name once here ---
    Enjade_NAME: EnjadeName,
