@@ -21,7 +21,7 @@ class EnjadeChabot {
      "About Jadeite",
      "Our Collections",
      "Blog",
-     "Contact",
+     "Contact us",
      "The story of Enjade"
    ],
    COPY: {
