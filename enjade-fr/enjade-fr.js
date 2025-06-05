@@ -6,7 +6,7 @@ class EnjadeChabot {
  static config = {
    PRIMARY_COLOR: '#000000', // black
    SECONDARY_COLOR: '#F0F4F8',
-   USER_MESSAGE_BG: '#e8b444', // orange
+   USER_MESSAGE_BG: '#00A86B', // jade green
    // USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg', // Keep this if needed elsewhere, not used for user messages anymore
    CUSTOMIZED_ICON: 'https://images.squarespace-cdn.com/content/v1/6782c81bc9e926610d7efa9d/517763a3-179d-4ffc-84e5-e6f44bf08c7f/Logo+v2.png',
   // https://images.squarespace-cdn.com/content/v1/6782c81bc9e926610d7efa9d/517763a3-179d-4ffc-84e5-e6f44bf08c7f/Logo+v2.png
