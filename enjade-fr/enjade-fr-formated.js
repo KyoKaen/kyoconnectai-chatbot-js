@@ -19,7 +19,7 @@ class EnjadeChatbot {
      "The story of Enjade"
     ],
     COPY: {
-      header: "Enjade AI Agent",
+      header: "EnJade Curator",
       systemMessage: "Please note: You can ask up to <strong>20 questions</strong> about Enjade",
       initialMessage: "Hi! What can I help you with Enjade?",
       inputPlaceholder: "Ask your question...",
