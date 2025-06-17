@@ -631,7 +631,7 @@ class ShiftIncChatbot {
   }
 }
 
-const apiUrl = "https://shift-1096582767898.europe-west1.run.app/chat";
+const apiUrl = "https://shift-inc-1096582767898.europe-west1.run.app/chat";
 
 if (document.readyState === 'complete') {
   new ShiftIncChatbot({ apiUrl });
