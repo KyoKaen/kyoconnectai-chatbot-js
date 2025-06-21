@@ -12,12 +12,12 @@ class ShiftIncChatbot {
 
 
     FREQUENT_QUESTIONS: [
-          "Who we are",
+          "SHIFTとは？",
       "SHIFT AI solutions",
-     "Our Collections",
-     "Blog",
-     "Contact us",
-     "The story of SHIFT"
+     "導入事例",
+     "企業理念",
+    "お問い合わせ",
+     "売り上げ"
     ],
     COPY: {
       header: "SHIFT AI Assistant",
