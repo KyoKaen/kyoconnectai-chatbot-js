@@ -13,14 +13,14 @@ class LourdesELPChatbot {
     BOT_ICON: 'https://kyokaen.github.io/kyoconnectai-chatbot-js/lourdes-elp-business-plan/lourdes-icon.jpg',
     
     FREQUENT_QUESTIONS: [
-      "What our EduPeruAI Does",
+      "What our STEAMIA Does",
       "Roadmap",
       "Founder Information"
     ],
     COPY: {
-      header: "EduPeruAI AI Agent",
-      systemMessage: "Please note: You can ask up to <strong>20 questions</strong> about our EduPeruAI",
-      initialMessage: "Hi I'm Lourdes! What can I help you with EduPeruAI?",
+      header: "STEAMIA AI Agent",
+      systemMessage: "Please note: You can ask up to <strong>20 questions</strong> about our STEAMIA",
+      initialMessage: "Hi I'm Lourdes! What can I help you with STEAMIA?",
       inputPlaceholder: "Ask your question...",
       footerHTML: `Powered by <a href="https://kyoconnectai.com/" target="_blank">KyoConnectAI.com</a> |
                    AI can make mistakes.`
