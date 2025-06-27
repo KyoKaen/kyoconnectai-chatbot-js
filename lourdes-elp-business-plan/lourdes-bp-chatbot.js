@@ -9,7 +9,9 @@ class LourdesELPChatbot {
     USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
     // CUSTOMIZED_ICON:'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
     // BOT_ICON: 'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
-    BOT_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
+    // BOT_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
+    BOT_ICON: 'https://kyokaen.github.io/kyoconnectai-mock-usecase/lourdes/lourdes-icon.jpg',
+    
     FREQUENT_QUESTIONS: [
       "What our EduPeruAI Does",
       "Roadmap",
