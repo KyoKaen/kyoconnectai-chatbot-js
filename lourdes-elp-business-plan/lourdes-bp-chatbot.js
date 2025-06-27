@@ -20,7 +20,7 @@ class LourdesELPChatbot {
     COPY: {
       header: "EduPeruAI AI Agent",
       systemMessage: "Please note: You can ask up to <strong>20 questions</strong> about our EduPeruAI",
-      initialMessage: "Hi! What can I help you with EduPeruAI?",
+      initialMessage: "Hi I'm Lourdes! What can I help you with EduPeruAI?",
       inputPlaceholder: "Ask your question...",
       footerHTML: `Powered by <a href="https://kyoconnectai.com/" target="_blank">KyoConnectAI.com</a> |
                    AI can make mistakes.`
