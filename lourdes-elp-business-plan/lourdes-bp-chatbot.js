@@ -10,15 +10,12 @@ class LourdesELPChatbot {
     // CUSTOMIZED_ICON:'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
     // BOT_ICON: 'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
     // BOT_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
-    BOT_ICON: 'https://kyokaen.github.io/kyoconnectai-mock-usecase/lourdes/lourdes-icon.jpg',
+    BOT_ICON: 'https://kyokaen.github.io/kyoconnectai-chatbot-js/lourdes-elp-business-plan/lourdes-icon.jpg',
     
     FREQUENT_QUESTIONS: [
       "What our EduPeruAI Does",
       "Roadmap",
-      "Founder Information",
-      "Differentiation from Competitors",
-      "Mission & Unique Value Proposition (UVP)",
-      "How our AI platform "
+      "Founder Information"
     ],
     COPY: {
       header: "EduPeruAI AI Agent",
@@ -633,7 +630,7 @@ class LourdesELPChatbot {
 }
 
 // Initialization
-const SERVICE_NAME="kyoconnectai-hp-chatbot-genai"
+const SERVICE_NAME="lourdes-bp-chatbot"
 const API_SUFFIX = "-1096582767898.europe-west1.run.app/chat";
 const apiUrl = `https://${SERVICE_NAME}${API_SUFFIX}`;
 
