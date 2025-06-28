@@ -219,8 +219,8 @@ class EnjadeChatbot {
           position: fixed;
           bottom: 25px;
           right: 25px;
-          width: 100px;
-          height: 100px;
+          width: 80px;
+          height: 80px;
           background: #000;
           border-radius: 50%;
           border: none;
