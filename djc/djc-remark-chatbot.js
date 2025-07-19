@@ -251,7 +251,7 @@ class DJCChatbot {
           opacity: 1;
       }
       #chat-toggle i {
-          font-size: 1.5em;
+          font-size: 1.2em;
           color: white;
           opacity: 0;
       }
