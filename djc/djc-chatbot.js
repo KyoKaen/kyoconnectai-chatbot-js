@@ -11,9 +11,9 @@ class DJCChatbot {
     BOT_ICON: 'https://images.squarespace-cdn.com/content/v1/6782c81bc9e926610d7efa9d/517763a3-179d-4ffc-84e5-e6f44bf08c7f/Logo+v2.png',
 
     FREQUENT_QUESTIONS: [
-      "株式会社DJCの経営理念",
-     "株式会社DJCとは？",
-     "株式会社DJCの事業目的",
+      "株式会社DJCとは？",
+      "株式会社DJCの経営理念", 
+      "株式会社DJCの事業目的",
      "代表取締役"
     ],
     COPY: {
