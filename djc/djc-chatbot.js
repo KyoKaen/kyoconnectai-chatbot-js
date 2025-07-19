@@ -7,8 +7,9 @@ class DJCChatbot {
     USER_MESSAGE_BG: '#28a745', // green
     USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
     // CUSTOMIZED_ICON: 'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
-    CUSTOMIZED_ICON: 'https://kyokaen.github.io/kyoconnectai-mock-usecase/DJC/djc-logo.svg',
-    BOT_ICON: 'https://kyokaen.github.io/kyoconnectai-mock-usecase/DJC/djc-logo.svg',
+    CUSTOMIZED_ICON: 'https://kyokaen.github.io/kyoconnectai-mock-usecase/DJC/yamamoto.jpg',
+    BOT_ICON: 'https://kyokaen.github.io/kyoconnectai-mock-usecase/DJC/yamamoto.jpg',
+    // https://kyokaen.github.io/kyoconnectai-mock-usecase/DJC/djc-logo.svg
   
     FREQUENT_QUESTIONS: [
       "株式会社DJCとは？",
@@ -17,9 +18,9 @@ class DJCChatbot {
      "代表取締役"
     ],
     COPY: {
-      header: "DJC Curator",
+      header: "DJC AIアシスタント",
       systemMessage: "Please note: You can ask up to <strong>20 questions</strong> about DJC",
-      initialMessage: "Hi! What can I help you with DJC?",
+      initialMessage: "こんにちは！株式会社DJCのAIアシスタントです。",
       inputPlaceholder: "Ask your question...",
       footerHTML: `Powered by <a href="https://kyoconnectai.com/" target="_blank">KyoConnectAI.com</a> |
                    AI can make mistakes. Verify important info with Tamara.`
