@@ -23,7 +23,7 @@ class DJCChatbot {
       initialMessage: "こんにちは！株式会社DJCのAIアシスタントです。",
       inputPlaceholder: "Ask your question...",
       footerHTML: `Powered by <a href="https://kyoconnectai.com/" target="_blank">KyoConnectAI.com</a> |
-                   AI can make mistakes. Verify important info with Tamara.`
+                   AI can make mistakes.`
     },
     behavior: {
       maxQuestions: 20,
