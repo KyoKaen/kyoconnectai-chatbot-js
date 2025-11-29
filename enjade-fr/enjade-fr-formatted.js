@@ -24,7 +24,7 @@ class EnjadeChatbot {
       initialMessage: "Hi! What can I help you with Enjade?",
       inputPlaceholder: "Ask your question...",
       footerHTML: `Powered by <a href="https://kyox.ai/" target="_blank">KyoX.ai</a> |
-                   AI can make mistakes. Verify important info with Tamara.`
+                   AI can make mistakes.`
     },
     behavior: {
       maxQuestions: 20,
