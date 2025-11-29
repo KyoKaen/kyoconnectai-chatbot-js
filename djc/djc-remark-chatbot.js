@@ -22,7 +22,7 @@ class DJCChatbot {
       systemMessage: "Please note: You can ask up to <strong>20 questions</strong> about DJC",
       initialMessage: "こんにちは！株式会社DJCのAIアシスタントです。",
       inputPlaceholder: "Ask your question...",
-      footerHTML: `Powered by <a href="https://kyoconnectai.com/" target="_blank">KyoConnectAI.com</a> |
+      footerHTML: `Powered by <a href="https://kyox.ai/" target="_blank">KyoX.ai</a> |
                         AI can make mistakes.`,
       floatingCallToAction: "こんにちは！ご質問、どうぞ！" // 新しいテキスト
     },
