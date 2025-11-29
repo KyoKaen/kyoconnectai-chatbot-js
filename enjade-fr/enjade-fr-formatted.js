@@ -23,7 +23,7 @@ class EnjadeChatbot {
       systemMessage: "Please note: You can ask up to <strong>20 questions</strong> about Enjade",
       initialMessage: "Hi! What can I help you with Enjade?",
       inputPlaceholder: "Ask your question...",
-      footerHTML: `Powered by <a href="https://kyoconnectai.com/" target="_blank">KyoConnectAI.com</a> |
+      footerHTML: `Powered by <a href="https://kyox.ai/" target="_blank">KyoX.ai</a> |
                    AI can make mistakes. Verify important info with Tamara.`
     },
     behavior: {
