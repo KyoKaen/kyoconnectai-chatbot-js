@@ -628,7 +628,6 @@ class CampingChatbot {
   }
 }
 
-//https://camping-esplanaadi-chatbot-1096582767898.europe-west1.run.app/chat
 // Initialization
 // const SERVICE_NAME="camping-esplanaadi-chatbot"
 // const API_SUFFIX = "-1096582767898.europe-west1.run.app/chat";
