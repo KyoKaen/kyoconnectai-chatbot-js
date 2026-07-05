@@ -4,9 +4,9 @@ class CampingChatbot {
   static config = {
     PRIMARY_COLOR: '#000000',
     SECONDARY_COLOR: '#F0F4F8',
-    USER_MESSAGE_BG: '#28a745', //green
+    USER_MESSAGE_BG: '#28a745', // green
     USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
-    CUSTOMIZED_ICON:'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
+    CUSTOMIZED_ICON: 'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
     BOT_ICON: 'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
     FREQUENT_QUESTIONS: [
       "Check-in and check-out times",
@@ -35,9 +35,11 @@ class CampingChatbot {
   };
 
   constructor(config = {}) {
+      // Add dependency loader first
+    this.loadDependencies().then(() => {
 
     // Set API endpoint
-    this.apiEndpoint = config.apiUrl || window.CAMPING_CHATBOT_API || '/chat';
+    this.apiEndpoint = config.apiUrl || window.CHATBOT_API || '/chat';
 
     this.state = {
       isOpen: false,
@@ -50,7 +52,47 @@ class CampingChatbot {
     this.initEventListeners();
     this.initFrequentQuestions();
     this.loadFontAwesome();
+    });
   }
+
+
+  async loadDependencies() {
+  return new Promise((resolve) => {
+    if (window.marked && window.DOMPurify) {
+      return resolve();
+    }
+
+    let loadedCount = 0;
+    const checkLoaded = () => ++loadedCount === 2 && resolve();
+
+    // Load marked
+    const markedScript = document.createElement('script');
+    markedScript.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
+    markedScript.onload = checkLoaded;
+    document.head.appendChild(markedScript);
+
+    // Load DOMPurify
+    const purifyScript = document.createElement('script');
+    purifyScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js';
+    purifyScript.onload = checkLoaded;
+    document.head.appendChild(purifyScript);
+  });
+}
+
+  // Modified parseMarkdown method
+  parseMarkdown(content) {
+    try {
+      const unsafeHtml = window.marked.parse(content);
+      return window.DOMPurify.sanitize(unsafeHtml, {
+        ALLOWED_TAGS: ['p', 'strong', 'em', 'ul', 'ol', 'li', 'h3', 'h4', 'a', 'table', 'tr', 'td', 'th', 'thead', 'tbody'],
+        ALLOWED_ATTR: ['href', 'target']
+      });
+    } catch (error) {
+      console.error('Markdown parsing error:', error);
+      return content; // Fallback to raw text
+    }
+  }
+
 
   // =============== Style Injection ===============
   injectStyles() {
@@ -59,15 +101,15 @@ class CampingChatbot {
       :root {
         --primary-color: ${CampingChatbot.config.PRIMARY_COLOR};
         --secondary-color: ${CampingChatbot.config.SECONDARY_COLOR};
-        --user-message-bg-color: ${CampingChatbot.config.USER_MESSAGE_BG};
+        --user-message-bg-color: ${CampingChatbot.config.USER_MESSAGE_BG}; // end user message color
       }
 
       /* Original container styles preserved */
-      #camping-chatbot-container {
+      #kyoconnectai-hp-chatbot-container {
         position: fixed;
         bottom: 90px;
         right: 25px;
-        width: 450px;
+        width: 420px;
         height: 650px;
         background: white;
         border-radius: 15px;
@@ -78,7 +120,7 @@ class CampingChatbot {
         z-index: 1000;
       }
 
-      #camping-chatbot-header {
+      #kyoconnectai-hp-chatbot-header {
         display: flex;
         align-items: center;
         padding: 10px;
@@ -88,13 +130,13 @@ class CampingChatbot {
       }
 
 
-      #camping-chatbot-header h4 {
+      #kyoconnectai-hp-chatbot-header h4 {
           margin: 0;
           font-size: 1.1em;
           color: var(--primary-color); //black
       }
 
-      #camping-chatbot-messages {
+      #kyoconnectai-hp-chatbot-messages {
           flex: 1;
           padding: 10px;
           overflow-y: auto;
@@ -102,15 +144,15 @@ class CampingChatbot {
       }
 
       /* Frequent Questions Section */
-      #camping-chatbot-frequent-questions {
+      #kyoconnectai-hp-chatbot-frequent-questions {
           padding: 10px;
           background: #fff;
           border-top: 1px solid var(--secondary-color);
           border-bottom: 1px solid var(--secondary-color);
       }
-      #camping-chatbot-frequent-questions h6 {
-          margin-bottom: 6px;
+      #kyoconnectai-hp-chatbot-frequent-questions h6 {
           margin-top: 1px; /* Reduce large space*/
+          margin-bottom: 6px;
           font-size: 0.9em;
           font-weight: bold;
       }
@@ -135,19 +177,19 @@ class CampingChatbot {
           color: #fff;
       }
 
-      #camping-chatbot-input-area {
+      #kyoconnectai-hp-chatbot-input-area {
           display: flex;
           padding: 10px;
           border-top: 1px solid var(--secondary-color);
           background: #fff;
       }
-      #camping-chatbot-input {
+      #kyoconnectai-hp-chatbot-input {
           flex: 1;
           padding: 8px;
           border: 1px solid #ccc;
           border-radius: 4px;
       }
-      #camping-chatbot-send {
+      #kyoconnectai-hp-chatbot-send {
           background: var(--primary-color);
           color: white;
           border: none;
@@ -158,14 +200,14 @@ class CampingChatbot {
       }
 
       /* Footer */
-      #camping-chatbot-footer {
+      #kyoconnectai-hp-chatbot-footer {
           text-align: center;
           font-size: 0.8em;
           color: #6c757d;
           padding: 8px;
           border-top: 1px solid var(--secondary-color);
       }
-      #camping-chatbot-footer a {
+      #kyoconnectai-hp-chatbot-footer a {
           color: var(--primary-color);
           text-decoration: none;
       }
@@ -173,7 +215,7 @@ class CampingChatbot {
       /* Floating Toggle Button */
       #chat-toggle {
           position: fixed;
-          bottom: 50px; 
+          bottom: 25px;
           right: 25px;
           width: 56px;
           height: 56px;
@@ -195,7 +237,7 @@ class CampingChatbot {
       }
       #chat-toggle img {
           width: 100%;
-          height: 100%;
+          height: 100%; /* customize */
           border-radius: 50%;
           object-fit: cover;
           opacity: 1;
@@ -242,13 +284,12 @@ class CampingChatbot {
       .bot-message-bubble {
           background: white;
           border: 1px solid #dee2e6;
-          font-size: 1.0em; // tamara said message is too small 0.9 ->1.0
-
+          font-size: 0.9em;
       }
       .user-message-bubble {
           background: var(--user-message-bg-color);
           color: white;
-          font-size: 1.0em; // tamara said message is too small 0.9 ->1.0
+          font-size: 0.9em;
       }
               /* Loading Animation */
           .loading-dots {
@@ -285,9 +326,55 @@ class CampingChatbot {
     border-radius: 10px;
     padding: 10px;
     margin: 15px 0;
-    font-size: 1.0em; // tamara said message is too small
+    font-size: 0.9em;
     animation: fadeIn 0.3s ease;
     }
+
+      .bot-message-bubble h3 {
+        color: var(--primary-color);
+        font-size: 1.1em;
+        margin: 15px 0 10px;
+      }
+
+      .bot-message-bubble ul,
+      .bot-message-bubble ol {
+        padding-left: 25px;
+        margin: 10px 0;
+      }
+
+      .bot-message-bubble li {
+        margin-bottom: 8px;
+        line-height: 1.5;
+      }
+
+      .bot-message-bubble table {
+        border-collapse: collapse;
+        margin: 15px 0;
+        width: 100%;
+        font-size: 0.85em;
+      }
+      .bot-message-bubble th {
+        background-color: #f8f9fa;
+        font-weight: 600;
+      }
+
+      .bot-message-bubble td,
+      .bot-message-bubble th {
+        border: 1px solid #dee2e6;
+        padding: 8px 10px;
+        text-align: left;
+      }
+
+      .bot-message-bubble a {
+        color: var(--primary-color);
+        text-decoration: underline;
+        word-break: break-all;
+      }
+
+      .bot-message-bubble strong {
+        color: var(--primary-color);
+        font-weight: 600;
+      } 
     `;
     document.head.appendChild(style);
   }
@@ -296,14 +383,14 @@ class CampingChatbot {
   createDOM() {
     // Main Container
     this.container = document.createElement('div');
-    this.container.id = 'camping-chatbot-container';
+    this.container.id = 'kyoconnectai-hp-chatbot-container';
     this.container.innerHTML = `
-      <div id="camping-chatbot-header">
+      <div id="kyoconnectai-hp-chatbot-header">
         <img src="${CampingChatbot.config.BOT_ICON}" alt="Chatbot Logo" width="40" height="40" style="border-radius:50%; margin-right:10px;">
         <h4>${CampingChatbot.config.COPY.header}</h4>
       </div>
 
-      <div id="camping-chatbot-messages">
+      <div id="kyoconnectai-hp-chatbot-messages">
         <div class="system-message">
           ${CampingChatbot.config.COPY.systemMessage}
         </div>
@@ -315,17 +402,17 @@ class CampingChatbot {
         </div>
       </div>
 
-      <div id="camping-chatbot-frequent-questions">
+      <div id="kyoconnectai-hp-chatbot-frequent-questions">
         <h6>Frequent Questions:</h6>
         <div id="frequentQuestions"></div>
       </div>
 
-      <div id="camping-chatbot-input-area">
-        <input type="text" id="camping-chatbot-input" placeholder="${CampingChatbot.config.COPY.inputPlaceholder}">
-        <button id="camping-chatbot-send">Send</button>
+      <div id="kyoconnectai-hp-chatbot-input-area">
+        <input type="text" id="kyoconnectai-hp-chatbot-input" placeholder="${CampingChatbot.config.COPY.inputPlaceholder}">
+        <button id="kyoconnectai-hp-chatbot-send">Send</button>
       </div>
 
-      <div id="camping-chatbot-footer">
+      <div id="kyoconnectai-hp-chatbot-footer">
         ${CampingChatbot.config.COPY.footerHTML}
       </div>
     `;
@@ -335,7 +422,7 @@ class CampingChatbot {
     this.toggleButton = document.createElement('button');
     this.toggleButton.id = 'chat-toggle';
     this.toggleButton.innerHTML = `
-      <img src="${CampingChatbot.config.CUSTOMIZED_ICON}" alt="Chatbot Logo">
+      <img src="${CampingChatbot.config.BOT_ICON}" alt="Chatbot Logo">  //customized toggle button
       <i class="fas fa-chevron-down"></i>
     `;
     document.body.appendChild(this.toggleButton);
@@ -344,8 +431,8 @@ class CampingChatbot {
   // =============== Event Listeners ===============
   initEventListeners() {
     this.toggleButton.addEventListener('click', () => this.toggleChat());
-    document.getElementById('camping-chatbot-send').addEventListener('click', () => this.handleSend());
-    document.getElementById('camping-chatbot-input').addEventListener('keypress', e => {
+    document.getElementById('kyoconnectai-hp-chatbot-send').addEventListener('click', () => this.handleSend());
+    document.getElementById('kyoconnectai-hp-chatbot-input').addEventListener('keypress', e => {
       if (e.key === 'Enter') this.handleSend();
     });
   }
@@ -364,7 +451,7 @@ class CampingChatbot {
     // Prevent concurrent processing
     if (this.state.isProcessing) return;
 
-    const input = document.getElementById('camping-chatbot-input');
+    const input = document.getElementById('kyoconnectai-hp-chatbot-input');
     const message = input.value.trim();
     let loading = null; // Declare loading outside try block
 
@@ -388,20 +475,21 @@ class CampingChatbot {
       this.state.isProcessing = true;
       this.toggleUIState(true); // Disable inputs
 
-      // Create loading element after validation
-      loading = this.createLoading();
-      this.container.querySelector('#camping-chatbot-messages').appendChild(loading);
-
+      //Add user message first
       this.state.questionCount++;
       this.addMessage(message, 'user');
       input.value = '';
+
+      // then Create loading element after validation
+      loading = this.createLoading();
+      this.container.querySelector('#kyoconnectai-hp-chatbot-messages').appendChild(loading);
 
       const response = await fetch(this.apiEndpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           message: message,
-          session_id: "camping-esplanaadi"
+          session_id: "kyoconnectai-hp-chatbot"
         })
       });
 
@@ -447,7 +535,7 @@ class CampingChatbot {
   // Add UI state management
   toggleUIState(disabled) {
     const elements = [
-      document.getElementById('camping-chatbot-send'),
+      document.getElementById('kyoconnectai-hp-chatbot-send'),
       ...document.querySelectorAll('.frequent-question-btn')
     ];
 
@@ -459,18 +547,28 @@ class CampingChatbot {
   }
 
   addMessage(text, sender) {
-    const messagesDiv = this.container.querySelector('#camping-chatbot-messages');
+    const messagesDiv = this.container.querySelector('#kyoconnectai-hp-chatbot-messages');
     const message = document.createElement('div');
     message.className = `message-container ${sender}-message-container`;
 
+    const formattedText = sender === 'bot' ? this.parseMarkdown(text): text;
     message.innerHTML = `
       <img src="${sender === 'user' ? CampingChatbot.config.USER_ICON : CampingChatbot.config.BOT_ICON}"
            class="message-icon"
            alt="${sender} icon">
       <div class="message-bubble ${sender}-message-bubble">
-        ${text}
+        ${formattedText}
       </div>
     `;
+    
+    // message.innerHTML = `
+    //   <img src="${sender === 'user' ? CampingChatbot.config.USER_ICON : CampingChatbot.config.BOT_ICON}"
+    //        class="message-icon"
+    //        alt="${sender} icon">
+    //   <div class="message-bubble ${sender}-message-bubble">
+    //     ${text}
+    //   </div>
+    // `;
 
     messagesDiv.appendChild(message);
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
@@ -494,7 +592,7 @@ class CampingChatbot {
 
   // display too long or exceed question limit
   addSystemMessage(text) {
-    const messagesDiv = this.container.querySelector('#camping-chatbot-messages');
+    const messagesDiv = this.container.querySelector('#kyoconnectai-hp-chatbot-messages');
     const systemMessage = document.createElement('div');
     systemMessage.className = 'system-message';
     systemMessage.innerHTML = text;
@@ -512,7 +610,7 @@ class CampingChatbot {
       button.textContent = question;
       button.addEventListener('click', () => {
         if (this.state.isProcessing) return;
-        document.getElementById('camping-chatbot-input').value = question;
+        document.getElementById('kyoconnectai-hp-chatbot-input').value = question;
         this.handleSend();
       });
       container.appendChild(button);
@@ -531,11 +629,13 @@ class CampingChatbot {
 }
 
 // Initialization
-if (document.readyState === 'complete') {
-  new CampingChatbot({
-    apiUrl: 'https://camping-chatbot-1096582767898.europe-west1.run.app/chat'
-  });
+// const SERVICE_NAME="camping-esplanaadi-chatbot"
+// const API_SUFFIX = "-1096582767898.europe-west1.run.app/chat";
+// const apiUrl = `https://${SERVICE_NAME}${API_SUFFIX}`;
+const apiUrl = "https://tamara-camping-esplanaadi-2026-1096582767898.europe-west1.run.app/chat";
 
+if (document.readyState === 'complete') {
+  new CampingChatbot({ apiUrl });
 } else {
-  window.addEventListener('DOMContentLoaded', () => new CampingChatbot({ apiUrl: 'https://camping-chatbot-1096582767898.europe-west1.run.app/chat'}));
+  window.addEventListener('DOMContentLoaded', () => new CampingChatbot({ apiUrl }));
 }
