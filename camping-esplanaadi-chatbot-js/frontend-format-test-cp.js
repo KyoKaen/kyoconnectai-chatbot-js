@@ -632,7 +632,7 @@ class CampingChatbot {
 // const SERVICE_NAME="camping-esplanaadi-chatbot"
 // const API_SUFFIX = "-1096582767898.europe-west1.run.app/chat";
 // const apiUrl = `https://${SERVICE_NAME}${API_SUFFIX}`;
-const apiUrl = "https://tamara-camping-esplanaadi-2026-1096582767898.europe-west1.run.app/chat";
+const apiUrl = "https://tamara-chatbot-2026-0711-1096582767898.europe-west1.run.app/chat";
 
 if (document.readyState === 'complete') {
   new CampingChatbot({ apiUrl });
