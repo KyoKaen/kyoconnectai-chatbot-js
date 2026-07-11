@@ -703,7 +703,7 @@ class DJCChatbot {
   }
 }
 
-const apiUrl = "https://djc-1096582767898.asia-northeast1.run.app/chat";
+const apiUrl = "https://yamamoto-djc-chatbot-2026-1096582767898.asia-northeast1.run.app/chat";
 
 if (document.readyState === 'complete') {
   new DJCChatbot({ apiUrl });
