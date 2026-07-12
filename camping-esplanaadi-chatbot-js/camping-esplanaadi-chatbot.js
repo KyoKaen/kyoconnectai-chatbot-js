@@ -22,7 +22,8 @@ class CampingChatbot {
       initialMessage: "Hi! What can I help you with Camping Esplanaadi?",
       inputPlaceholder: "Ask your question...",
       footerHTML: `Powered by <a href="https://kyox.ai/" target="_blank">KyoConnectAI.com</a> |
-                   AI can make mistakes. Verify important info with Tamara.`
+                   AI can make mistakes. Verify important info with Tamara.`,
+      floatingCallToAction: "Welcome! Ask me anything about Camping Esplanaadi! \u{1F3D5}\uFE0F"
     },
     behavior: {
       maxQuestions: 20,
@@ -44,7 +45,8 @@ class CampingChatbot {
     this.state = {
       isOpen: false,
       questionCount: 0,
-      isProcessing: false // Add processing state
+      isProcessing: false, // Add processing state
+      callToActionVisible: true
     };
 
     this.injectStyles();
@@ -52,6 +54,11 @@ class CampingChatbot {
     this.initEventListeners();
     this.initFrequentQuestions();
     this.loadFontAwesome();
+
+    // Show CTA bubble on initial load
+    if (this.state.callToActionVisible) {
+        this.showCallToAction();
+    }
     });
   }
 
@@ -248,6 +255,66 @@ class CampingChatbot {
           opacity: 0;
       }
 
+      /* CTA Bubble */
+      #camping-chatbot-call-to-action {
+          position: fixed;
+          bottom: 40px;
+          right: 95px;
+          background-color: #ffffff;
+          color: ${CampingChatbot.config.PRIMARY_COLOR};
+          padding: 10px 15px;
+          border-radius: 25px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+          font-size: 1.0em;
+          font-weight: bold;
+          white-space: nowrap;
+          display: flex;
+          align-items: center;
+          z-index: 999;
+          opacity: 1;
+          visibility: visible;
+          transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      #camping-chatbot-call-to-action.hidden {
+          opacity: 0;
+          visibility: hidden;
+      }
+
+      #camping-chatbot-call-to-action .close-btn {
+          margin-left: 10px;
+          background: none;
+          border: none;
+          color: ${CampingChatbot.config.PRIMARY_COLOR};
+          font-size: 1.2em;
+          cursor: pointer;
+          line-height: 1;
+          padding: 0;
+      }
+      #camping-chatbot-call-to-action .close-btn:hover {
+          color: #666;
+      }
+
+      /* Mobile responsive */
+      @media (max-width: 480px) {
+          #chat-toggle {
+              width: 56px;
+              height: 56px;
+          }
+          #kyoconnectai-hp-chatbot-container {
+              width: calc(100vw - 20px);
+              height: calc(100vh - 120px);
+              right: 10px;
+              bottom: 80px;
+          }
+          #camping-chatbot-call-to-action {
+              right: 80px;
+              bottom: 35px;
+              font-size: 0.85em;
+              padding: 8px 12px;
+          }
+      }
+
       /* Message Styles */
       .system-message {
               background: #fff3cd;
@@ -422,10 +489,21 @@ class CampingChatbot {
     this.toggleButton = document.createElement('button');
     this.toggleButton.id = 'chat-toggle';
     this.toggleButton.innerHTML = `
-      <img src="${CampingChatbot.config.BOT_ICON}" alt="Chatbot Logo">  //customized toggle button
+      <img src="${CampingChatbot.config.BOT_ICON}" alt="Chatbot Logo">
       <i class="fas fa-chevron-down"></i>
     `;
     document.body.appendChild(this.toggleButton);
+
+    // CTA Bubble
+    this.callToAction = document.createElement('div');
+    this.callToAction.id = 'camping-chatbot-call-to-action';
+    this.callToAction.innerHTML = `
+        <span>${CampingChatbot.config.COPY.floatingCallToAction}</span>
+        <button class="close-btn" aria-label="Close">
+            <i class="fas fa-times"></i>
+        </button>
+    `;
+    document.body.appendChild(this.callToAction);
   }
 
   // =============== Event Listeners ===============
@@ -435,6 +513,26 @@ class CampingChatbot {
     document.getElementById('kyoconnectai-hp-chatbot-input').addEventListener('keypress', e => {
       if (e.key === 'Enter') this.handleSend();
     });
+
+    // CTA close button
+    const closeBtn = this.callToAction.querySelector('.close-btn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => this.hideCallToAction());
+    }
+  }
+
+  // Show CTA bubble
+  showCallToAction() {
+    if (!this.callToAction) return;
+    this.callToAction.classList.remove('hidden');
+    this.state.callToActionVisible = true;
+  }
+
+  // Hide CTA bubble
+  hideCallToAction() {
+    if (!this.callToAction) return;
+    this.callToAction.classList.add('hidden');
+    this.state.callToActionVisible = false;
   }
 
   // =============== Core Functionality ===============
@@ -445,6 +543,11 @@ class CampingChatbot {
     const [img, icon] = this.toggleButton.children;
     img.style.opacity = this.state.isOpen ? '0' : '1';
     icon.style.opacity = this.state.isOpen ? '1' : '0';
+
+    // Hide CTA when chat opens
+    if (this.state.isOpen) {
+        this.hideCallToAction();
+    }
   }
 
   async handleSend() {
