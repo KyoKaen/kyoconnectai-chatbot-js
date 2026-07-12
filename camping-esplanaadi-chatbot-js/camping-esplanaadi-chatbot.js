@@ -21,7 +21,7 @@ class CampingChatbot {
       systemMessage: "Please note: You can ask up to <strong>20 questions</strong> about Camping Esplanaadi",
       initialMessage: "Hi! What can I help you with Camping Esplanaadi?",
       inputPlaceholder: "Ask your question...",
-      footerHTML: `Powered by <a href="https://kyox.ai/" target="_blank">KyoConnectAI.com</a> |
+      footerHTML: `Powered by <a href="https://kyox.ai/" target="_blank">KyoX.ai</a> |
                    AI can make mistakes. Verify important info with Tamara.`,
       floatingCallToAction: "Welcome! Ask me anything about Camping Esplanaadi! \u{1F3D5}\uFE0F"
     },
