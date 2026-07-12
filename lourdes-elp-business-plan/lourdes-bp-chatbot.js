@@ -6,10 +6,10 @@ class LourdesELPChatbot {
     SECONDARY_COLOR: '#F0F4F8',
     USER_MESSAGE_BG: '#000000', //black
     // USER_MESSAGE_BG: '#28a745', //green
-    USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
-    // CUSTOMIZED_ICON:'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
-    // BOT_ICON: 'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
-    // BOT_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
+    USER_ICON: 'https://kyox.ai/assets/kyoconnectai_logo.jpg',
+    // CUSTOMIZED_ICON:'https://kyox.ai/assets/camping-esplanaadi-logo.jpg',
+    // BOT_ICON: 'https://kyox.ai/assets/camping-esplanaadi-logo.jpg',
+    // BOT_ICON: 'https://kyox.ai/assets/kyoconnectai_logo.jpg',
     BOT_ICON: 'https://kyokaen.github.io/kyoconnectai-chatbot-js/lourdes-elp-business-plan/lourdes-icon.jpg',
     
     FREQUENT_QUESTIONS: [
@@ -22,7 +22,7 @@ class LourdesELPChatbot {
       systemMessage: "Please note: You can ask up to <strong>20 questions</strong> about our STEAMIA",
       initialMessage: "Hi I'm Lourdes! What can I help you with STEAMIA?",
       inputPlaceholder: "Ask your question...",
-      footerHTML: `Powered by <a href="https://kyoconnectai.com/" target="_blank">KyoConnectAI.com</a> |
+      footerHTML: `Powered by <a href="https://kyox.ai/" target="_blank">KyoConnectAI.com</a> |
                    AI can make mistakes.`
     },
     behavior: {

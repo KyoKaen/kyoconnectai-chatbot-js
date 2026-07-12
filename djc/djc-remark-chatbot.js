@@ -5,8 +5,8 @@ class DJCChatbot {
     PRIMARY_COLOR: '#000000',
     SECONDARY_COLOR: '#F0F4F8',
     USER_MESSAGE_BG: '#28a745', // green
-    USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
-    // CUSTOMIZED_ICON: 'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
+    USER_ICON: 'https://kyox.ai/assets/kyoconnectai_logo.jpg',
+    // CUSTOMIZED_ICON: 'https://kyox.ai/assets/camping-esplanaadi-logo.jpg',
     CUSTOMIZED_ICON: 'https://kyokaen.github.io/kyoconnectai-mock-usecase/DJC/yamamoto.jpg',
     BOT_ICON: 'https://kyokaen.github.io/kyoconnectai-mock-usecase/DJC/yamamoto.jpg',
     // https://kyokaen.github.io/kyoconnectai-mock-usecase/DJC/djc-logo.svg

@@ -5,9 +5,9 @@ class CampingChatbot {
     PRIMARY_COLOR: '#000000',
     SECONDARY_COLOR: '#F0F4F8',
     USER_MESSAGE_BG: '#28a745', // green
-    USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
-    CUSTOMIZED_ICON: 'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
-    BOT_ICON: 'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
+    USER_ICON: 'https://kyox.ai/assets/kyoconnectai_logo.jpg',
+    CUSTOMIZED_ICON: 'https://kyox.ai/assets/camping-esplanaadi-logo.jpg',
+    BOT_ICON: 'https://kyox.ai/assets/camping-esplanaadi-logo.jpg',
     FREQUENT_QUESTIONS: [
       "Check-in and check-out times",
       "Available facilities",
@@ -21,7 +21,7 @@ class CampingChatbot {
       systemMessage: "Please note: You can ask up to <strong>20 questions</strong> about Camping Esplanaadi",
       initialMessage: "Hi! What can I help you with Camping Esplanaadi?",
       inputPlaceholder: "Ask your question...",
-      footerHTML: `Powered by <a href="https://kyoconnectai.com/" target="_blank">KyoConnectAI.com</a> |
+      footerHTML: `Powered by <a href="https://kyox.ai/" target="_blank">KyoConnectAI.com</a> |
                    AI can make mistakes. Verify important info with Tamara.`
     },
     behavior: {

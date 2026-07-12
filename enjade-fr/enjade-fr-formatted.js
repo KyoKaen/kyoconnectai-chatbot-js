@@ -5,8 +5,8 @@ class EnjadeChatbot {
     PRIMARY_COLOR: '#000000',
     SECONDARY_COLOR: '#F0F4F8',
     USER_MESSAGE_BG: '#28a745', // green
-    USER_ICON: 'https://kyoconnectai.com/kyoconnectai_logo.jpg',
-    // CUSTOMIZED_ICON: 'https://kyoconnectai.com/camping-esplanaadi-logo.jpg',
+    USER_ICON: 'https://kyox.ai/assets/kyoconnectai_logo.jpg',
+    // CUSTOMIZED_ICON: 'https://kyox.ai/assets/camping-esplanaadi-logo.jpg',
     CUSTOMIZED_ICON: 'https://images.squarespace-cdn.com/content/v1/6782c81bc9e926610d7efa9d/517763a3-179d-4ffc-84e5-e6f44bf08c7f/Logo+v2.png',
     BOT_ICON: 'https://images.squarespace-cdn.com/content/v1/6782c81bc9e926610d7efa9d/517763a3-179d-4ffc-84e5-e6f44bf08c7f/Logo+v2.png',
 
